@@ -1,5 +1,5 @@
 <div class="container">
-<div class="row col-md-6">
+<div class="sign col-md-6">
   <form class="form-signin" role="form">
       <h2 class="form-signin-heading">Connectez-vous</h2>
       <input type="email" class="form-control" placeholder="Email address" required autofocus>
