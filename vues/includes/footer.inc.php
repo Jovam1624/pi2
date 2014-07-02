@@ -31,20 +31,17 @@
       <!-- jQuery -->
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
       <!-- fichier jd bootstrap -->
-      <script src="js/bootstrap.min.js"></script>
+      <script src="./js/bootstrap.min.js"></script>
+       
       <!-- <script src="js/sondage.js"></script>-->
       <script src="js/statistiques.js"></script>
+      <script src="js/like.js"></script>
 <script type="text/javascript">
               //fonction jquery qui fait apparaitre le modal sur le onload 
               //source : http://stackoverflow.com/questions/20068962/modal-onload-in-page-bootstrap-3
-            $('#inscription').click(function() {
-                console.log('test');
-                $('#myModal').modal({
-                show: true,
-                })
-            });
+           
 
 </script> 
-<?php include('./content/modal.php');?>
+<?php //include('./content/modal.php');?>
    </body>
 </html>
