@@ -39,8 +39,8 @@
               <span>Journal d'idées</span>
           </figure>
 	  <div class="inscription">
-      <button type="button" class="btn btn-primary btn-sm">Connexion</button>
-      <button id="inscription" type="button" class="btn btn-default btn-sm">Inscription</button>
+      <a href="index.php?p=inscription" type="button" class="btn btn-primary btn-sm">Connexion</a>
+      <a href="index.php?p=inscription" type="button" class="btn btn-default btn-sm">Inscription</a>
           
 	</div>
       </div>
