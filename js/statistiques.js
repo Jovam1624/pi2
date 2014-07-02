@@ -17,7 +17,7 @@ $(function() {
   
   // mettre tous les like dans une variable
   var recompence = $(".like").val();
-    console.log(recompence);
+    //console.log(recompence);
             // le switch qui va attribuer une medaille selon le like
             switch (recompence) {
 

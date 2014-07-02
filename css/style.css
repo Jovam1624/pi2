@@ -236,6 +236,10 @@ figure > span{
   cursor: pointer;
   
 }
+.thumbs-up-desactive{
+	cursor: not-allowed;
+	
+}
 	/* bouton onsultez voir les thumbnails*/
 .caption > div:nth-of-type(4) 
 { 
