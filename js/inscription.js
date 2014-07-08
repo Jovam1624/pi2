@@ -1,23 +1,7 @@
 
-//bloc qui redirige la premiere visite de l'utilisateur vers la bonne page d<inscritption
+// Bloc qui fait la verification des formulaires 
+// Pas encore actif dans la version beta
 
-/*var inv = document.getElementById("inv");
-var phi = document.getElementById("phi");
-if(document.getElementById('inv')){
-    document.getElementById('inv').addEventListener('click', goInscription, false);
-    document.getElementById('phi').addEventListener('click', goInscription, false);
-}
-
-function goInscription(){
-    if(event.target.id == "inv"){
-    document.location = "formInv.html";
-    }
-    if(event.target.id == "phi"){
-    document.location = "formPhi.html";
-    }
-}*/
-
-//bloc qui fera la validation de formulaire
 
 if(document.getElementById('boutonInv')){
     document.getElementById("boutonInv").addEventListener("click", valideFrom,false);
@@ -62,7 +46,7 @@ function validePassword(){
 	return erreur;
 }
 
-//fonction qui recupere l'erreur et affiche la bordure en rouge
+// Fonction qui récupère l'erreur et affiche la bordure en rouge
 
 function valideFrom(){
     if(valideNom()==false){

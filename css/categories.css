@@ -45,6 +45,12 @@
 .m-panel-body {
     padding:15px;
 }
+.m-panel-body img{
+  margin-left: 1%;
+}
+.m-panel-body p{
+  text-align: justify;
+}
 /*  test */
 .row{
     margin-left: 0px;

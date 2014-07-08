@@ -11,3 +11,12 @@
 .erreur{
     border: 1px solid #FF0000;
 }
+
+.sign{
+	float: none;
+	margin:0 auto;
+	padding-top: 50px;
+}
+.login {
+	text-align: center;
+}
