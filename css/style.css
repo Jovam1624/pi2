@@ -5,7 +5,6 @@ html /* La police d'écriture pour tous le site*/
 }
 body /* background pour le body*/
 { 
-	
 	background-image:url(../img/bg-body.png);
 }
 body > .container-globale /* container-globale du document */
@@ -17,28 +16,13 @@ body > .container-globale /* container-globale du document */
 	padding-top:10px;
 	background-image:url(../img/bg-contenu.png);
 }
-
-#retour{
-	min-height: 750px;
+.reseau-social {
+    list-style:none;
+    margin:0;
 }
-.inscription{
-	float:right;
-	padding-top:20px;
-   
-}
-.inscription  > button{
-
-	border-radius:0;
-}
-.inscription form{
-	display: inline-block;
-}
-.inscription  > button:first-of-type(1){
-
-	background-color:#019875;
-}
-.reseaux-sociaux{
-	float:left;
+ul.reseau-social li {
+    display: inline;
+    margin: 0 5px;
 }
 .support-navs{
 	width:87%;
@@ -49,11 +33,6 @@ body > .container-globale /* container-globale du document */
 
 	color:#ffffff; 
 
-}
-.fa-home{
-	color:white;
-	padding-left: 35%;
-	font-size:1.3em;
 }
 nav:nth-of-type(1){
 	background-color:#131418;
@@ -173,13 +152,6 @@ figure > span{
 	padding-top:25px;
 
 }
-#accordion li{
-	list-style: none;
-}
-#accordion ul{
-	padding-left: 0px;
-
-}
 
 .thumbnail /*mettre une couleur aux thumbnails*/
 { 
@@ -201,8 +173,6 @@ figure > span{
 	border-radius:0;
 
 }
-
-
 	/* le texte du bouton consultez de chaque thumbnail*/
 .caption > a:last-child 
 { 
@@ -241,14 +211,6 @@ figure > span{
 {
 	color:#999999;
 }
-figure{
-	margin-left: -25px;
-}
-figure a {
-	text-decoration: none;
-	color:white;
-}
-
 .btnThumbs /* les icones dans les thumbnails */
 { 
 	float:left;
@@ -275,7 +237,7 @@ figure a {
   
 }
 .thumbs-up-desactive{
-	cursor: none;
+	cursor: not-allowed;
 	
 }
 	/* bouton onsultez voir les thumbnails*/
@@ -312,32 +274,12 @@ footer > .container-footer > ul > li:before
 footer > .btn /* bouton de l'ancran nomée dans le footer*/
 { 
 	float:right;
+	margin-right;
 	border-radius:0px;
 	border:none;
 	background-color:#019875;
 }
-.chargement{
-	margin-top:30px;
-    float:left;width:300px;
-    height:20px;
-    margin-right:100%;
-}
-.graphe{
-    display:none;
-
-}
-.graphe-sondage{
-    display:inline;
-
-}
-.form-sondage{
-	display:none;
-}
-.glyphicon-chevron-up{
-	color:#ffffff;
-}
-
-summary > h6 /* partie copyright*/
+details > summary > h6 /* partie copyright*/
 { 
 	color:#6B6E7A;
 	margin-left:1%;
@@ -348,8 +290,5 @@ summary > h6 /* partie copyright*/
 }
 .sondage input{
     float: left;
-}
-.btn-clique {
-    background-color : #019875;
 }
 

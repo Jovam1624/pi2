@@ -1,4 +1,4 @@
-// Pour éviter les erreurs de console dans les navigateurs sans console
+// Avoid `console` errors in browsers that lack a console.
 (function() {
     var method;
     var noop = function () {};
@@ -21,4 +21,4 @@
     }
 }());
 
-// Placer les plugins jQuery/helper ici.
+// Place any jQuery/helper plugins in here.

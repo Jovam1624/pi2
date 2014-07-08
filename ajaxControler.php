@@ -1,57 +1,19 @@
 <?php
 
 /**
- * COURS : Projet d'intégration II 
- * PROF.: Jonathan Martel
- * @author Équipe 3 :  Ait Hadji, Bretoux, Dubreuil, Fernandez Diaz, Tremblay
- * @reference Jonathan Martel - https://github.com/JonathanMartel/simpleMVCStructure
- * @version Beta
-
+ * Controlleur AJAX. Ce fichier est la porte d'entrée des requêtes AJAX (XHR)
+ * @author Jonathan Martel
+ * @version 1.0
+ * @update 2013-03-11
+ * @license Creative Commons BY-NC 3.0 (Licence Creative Commons Attribution - Pas d’utilisation commerciale 3.0 non transposé)
+ * @license http://creativecommons.org/licenses/by-nc/3.0/deed.fr
  * 
  */
-	require_once("./config.php");	
+
+	require_once("./config.php");
 	
-
-
-	// Récuperer les valeurs retournées par l'objet Ajax
-     $nbrLike = $_POST['like'];
-     $numeroArticle = $_POST['numeroArticle'];
-	 $nArticle = $_POST['nArticle'];
-     $nbrVues = $_POST['nbrVues'];
-	 
-	 
-      
-	 // Récuperer l'adresse mac de la machine
-	 // ob_start pour la temporisation
-	 // Pas encore actif pour la version  beta
-
-     ob_start();
-	 system("ipconfig /all");
-	 $moncom=ob_get_contents();
-	 ob_clean();
-	 $findme = "physique";
-	 $pmac = strpos($moncom, $findme);
-	 $mac=substr($moncom,($pmac+36),17);
-	 if($mac != 0)
-		{
-		echo 'ok';
-
-
-		}
-		else
-		{
-		echo "non";
-
-		}
-
-	 // Instancier l'objet accueil et invoquer les méthodes appropriées
-
-     $bdd = Accueil::getInstance("e1395254", "dbconnect");
-
-     // Arppelle les fonctions du modele accueil pour gérer les likes et 
-     // le nombre de vue sur chaque article
-     $bdd->setSondage($nbrLike,$numeroArticle);
-	 $bdd->setNbrVues($nbrVues,$nArticle);
-   
+	
+	// Mettre ici le code de gestion de la requête AJAX
+	
 
 ?>
