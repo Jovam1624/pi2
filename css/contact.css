@@ -3,8 +3,8 @@
     margin-top: 25px;
 }  
 .bouton{
-  background-color:#019875;
- color: white;
+  	background-color:#019875;
+ 	color: white;
 }
 .contact /*mettre une couleur aux thumbnails*/
 { 
@@ -17,4 +17,22 @@ aside > ul > .active
 	color: #555570;
 	padding: 10px 20px; 
 	font-weight:600;
+}
+.contactConfirm h3{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 16px;
+    font-style: italic;
+    text-align: center;
+    color: #019875;
+}
+.contactConfirm h4{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 14px;
+    font-style: italic;
+    text-align: center;
+    color: #FF0000;
 }
