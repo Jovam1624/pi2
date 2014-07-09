@@ -23,6 +23,7 @@
 	 
 	/// variable du forum ///
 	 
+	   $id = $_POST['id_article'];
 	   $nom = $_POST['nom'];
 	   $courriel = $_POST['courriel'];
 	   $message = $_POST['message']; 
@@ -61,7 +62,7 @@
 	 // rajouter par A.A  le 09-06-2014 a 12:20
 	 /// invoquer la methode setCommentaire dans le modele ///
 	 $bdd2  = Forum::getInstance("e1395254", "dbconnect");
-	 $bdd2->setCommentaire($nom,$courriel,$message);
+	 $bdd2->setCommentaire($id,$nom,$courriel,$message);
    
 
 ?>
