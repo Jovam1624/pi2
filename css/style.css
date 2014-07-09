@@ -6,7 +6,7 @@ html /* La police d'écriture pour tous le site*/
 body /* background pour le body*/
 { 
 	
-	background-image:url(../img/bg-body.png);
+	background-image:url(../accueil/img/bg-body.png);
 }
 body > .container-globale /* container-globale du document */
 { 
