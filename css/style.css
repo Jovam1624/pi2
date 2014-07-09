@@ -6,7 +6,7 @@ html /* La police d'écriture pour tous le site*/
 body /* background pour le body*/
 { 
 	
-	background-image:url(../img/bg-body.png);
+	background-image:url(../img/accueil/bg-body.png);
 }
 body > .container-globale /* container-globale du document */
 { 
@@ -15,6 +15,7 @@ body > .container-globale /* container-globale du document */
 	padding-left:0;
 	padding-right:0;
 	padding-top:10px;
+	border:solid 1px #dddddd;
 	background-image:url(../img/bg-contenu.png);
 }
 
@@ -54,6 +55,9 @@ body > .container-globale /* container-globale du document */
 	color:white;
 	padding-left: 35%;
 	font-size:1.3em;
+}
+nav > .navbar > .container-fluid{
+	border-radius:0;
 }
 nav:nth-of-type(1){
 	background-color:#131418;

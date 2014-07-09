@@ -11,7 +11,9 @@
  */
 	require_once("./config.php");	
 	
-
+ 
+                
+       
 
 	// Récuperer les valeurs retournées par l'objet Ajax
      $nbrLike = $_POST['like'];
@@ -19,8 +21,12 @@
 	 $nArticle = $_POST['nArticle'];
      $nbrVues = $_POST['nbrVues'];
 	 
+	/// variable du forum ///
 	 
-      
+	   $nom = $_POST['nom'];
+	   $courriel = $_POST['courriel'];
+	   $message = $_POST['message']; 
+       echo "Success";   
 	 // Récuperer l'adresse mac de la machine
 	 // ob_start pour la temporisation
 	 // Pas encore actif pour la version  beta
@@ -52,6 +58,10 @@
      // le nombre de vue sur chaque article
      $bdd->setSondage($nbrLike,$numeroArticle);
 	 $bdd->setNbrVues($nbrVues,$nArticle);
+	 // rajouter par A.A  le 09-06-2014 a 12:20
+	 /// invoquer la methode setCommentaire dans le modele ///
+	 $bdd2  = Forum::getInstance("e1395254", "dbconnect");
+	 $bdd2->setCommentaire($nom,$courriel,$message);
    
 
 ?>

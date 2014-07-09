@@ -50,6 +50,7 @@ class VueFooter {
      <script src="js/like.js"></script>
      <script src="js/scrollTop.js"></script>
 	 <script src="js/sondage-mois.js"></script>
+	 <script src="js/commentaire.js"></script>
 	 <script type="text/javascript">
 	</script> 
   </body>
