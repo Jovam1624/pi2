@@ -18,13 +18,22 @@
 					  courriel : courriel,
 					  message : message
                      },
+
 					success: function(html) 
 					{ 
-                     //console.log('ok'); 
+                     console.log('ok'); 
+                    
+                      
 					}
 				});	
+				 $( ".message" ).addClass( "msg-confirmation" ).html('message envoyé avec succès');
+				 $( ".message" ).fadeIn(3000); 
+				 $(".message").fadeTo(2500,0);
+					
 				
-				  //$('.affichage-comment').html('wewwe');
+				  //$('.message').html(message envoyé);
+				  $('.affichage-comment').last().html(message);
+
 				  // $('.msg-confirmation').html('message envoyé');
 
 				//$('.graphe').addClass( "graphe-sondage" );

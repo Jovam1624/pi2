@@ -127,12 +127,12 @@ class VueForum {
                             <li><i class="icon-comments"></i><?= count($comments); ?> Commentaires</a></li>
                         </ul>
                     </div>
-                    <div>
-                        <ul>
+                    <div class="form-comment">
+                     
                             <?php 
                             if (empty($comments)) {
                                 ?>
-                                    <li>No comment yet</li>
+                                 
                                 <?php 
 
                             } else{
@@ -141,28 +141,37 @@ class VueForum {
                                        <article class="affichage-comment">
                                         
                                            <p><?= $comment['comment_billet_contenu'] ?></p>
+                                           <p></p>
                                        </article>
                                      <?php
                                  }
                             }
                             ?> 
-                        </ul>
+                      
                     </div>
                 </article>
                 <article>
-                
-                    <form>
-                      <label for="nom">Nom</label>
-                      <input type="text" name="nom" id="nom" value="nom"><br>
-                      <label for="courriel">Courriel</label>
-                      <input type="text" name="courriel" id="courriel" value="courriel"><br>
-                      <label for="message">Commentaire</label>
-                      <input type="textarea" name="message" id="message" value="message"><br>
-                      <input type="button" class="commentaire" value="Poster">
-                    </form> 
-                
-                
-                
+                 <span class="message"></span>
+                     <form class="form-comment">   
+                    <div class="form-group">
+                          <label for="nom">Nom</label>
+                           <input type="text" class="form-control" name="nom" id="nom" value="nom" placeholder="Entrer le nom">
+                       
+                      </div>
+                      <div class="form-group">
+                        <label for="courriel">Courriel</label>
+                         <input type="email" class="form-control" name="courriel" id="courriel" value="courriel" placeholder="Courriel">
+                       
+                      </div>
+                      <div class="form-group">
+                        <label for="message">Commentaire</label>
+                          <textarea type="textarea" class="form-control" name="message" id="message" value="message" rows="4" cols="50" placeholder="Votre message ici..">
+                      </textarea>
+                       
+                      </div>
+                   
+                       <input type="button" class="commentaire" value="Poster">
+                        </form>             
                 
                 </article>
             <?php

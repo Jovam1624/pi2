@@ -11,7 +11,9 @@
  */
 	require_once("./config.php");	
 	
-
+ 
+                
+       
 
 	// Récuperer les valeurs retournées par l'objet Ajax
      $nbrLike = $_POST['like'];
@@ -24,7 +26,7 @@
 	   $nom = $_POST['nom'];
 	   $courriel = $_POST['courriel'];
 	   $message = $_POST['message']; 
-      
+       echo "Success";   
 	 // Récuperer l'adresse mac de la machine
 	 // ob_start pour la temporisation
 	 // Pas encore actif pour la version  beta
