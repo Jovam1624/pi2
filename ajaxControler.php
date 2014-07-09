@@ -19,7 +19,11 @@
 	 $nArticle = $_POST['nArticle'];
      $nbrVues = $_POST['nbrVues'];
 	 
+	/// variable du forum ///
 	 
+	   $nom = $_POST['nom'];
+	   $courriel = $_POST['courriel'];
+	   $message = $_POST['message']; 
       
 	 // Récuperer l'adresse mac de la machine
 	 // ob_start pour la temporisation
@@ -52,6 +56,10 @@
      // le nombre de vue sur chaque article
      $bdd->setSondage($nbrLike,$numeroArticle);
 	 $bdd->setNbrVues($nbrVues,$nArticle);
+	 // rajouter par A.A  le 09-06-2014 a 12:20
+	 /// invoquer la methode setCommentaire dans le modele ///
+	 $bdd2  = Forum::getInstance("e1395254", "dbconnect");
+	 $bdd2->setCommentaire($nom,$courriel,$message);
    
 
 ?>

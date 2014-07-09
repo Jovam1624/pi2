@@ -119,4 +119,14 @@ class Forum {
             return $this->forumPosts;
         }
     }
+    //  rajouter par A.A le 09-06-2014 a 12:19
+    public function setCommentaire($nom,$courriel,$message){
+    
+        $requete = "INSERT INTO comment_billet VALUES ('','1','".$nom."','".$courriel."','titre_par_defaut','".$message."','CURRENT_TIMESTAMP','1','1')";
+        
+        $nb = $this->getBD()->exec($requete);
+    
+    
+    
+    }
 }
