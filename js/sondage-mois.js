@@ -25,11 +25,14 @@
 				//JQuery qui cache les classes pour afficher les résultats du sondage après le vote
 				$('.form').addClass( "form-sondage" );
 				$('.graphe').addClass( "graphe-sondage" );
-				
+
 				//JQuery qui affiche les résultats du sondage après le vote
 				$(".chargement").each(function(index, element) {
 				var pourcentage = parseInt($(element).text()); 
-				
+				$('#spinner').addClass( "icon-spinner" ).fadeIn(3000);
+				$('#spinner').addClass( "icon-spinner" ).fadeTo(2900,0);
+				$('#spinner').addClass( "icon-spinner-rotation" );
+				//$('#spinner').removeClass( "icon-spinner" );
 				$(element).html('<div class="loading"></div>');
 				$(element).find('.loading').css({"width":"0px",
                                            "float":"left",

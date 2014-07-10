@@ -191,6 +191,7 @@ class VueAccueil {
 		        </div>
 		        <div class="panel-body sondage">
 		           <form action="#" class="form">
+
 		              <p>
 		                 Que pensez vous de l'invention des arbres lumineux ?
 		              </p>
@@ -202,7 +203,9 @@ class VueAccueil {
 		              <label for="btn3">&nbsp;Tr&egrave;s mauvaise invention</label>
 		              <input class="btn btn-default" type="button" name="sondage" class="sondage" id="sondage-mois" value="Valider">
 		           </form>
+		           <span id="spinner"></span>
 		           <div class="graphe">
+		           	
 				    <?php
 		           
              		for ($i = 0;$i < 3; $i++) {
