@@ -16,7 +16,7 @@ class Accueil
     private $monArtPopulaire;
     private $nbrIdees;
     private  $nbrClick;
-    
+    private $mac;
  	// ****************************************   
  	public function __construct($base, $param) {
         require_once($param.".inc.php");
@@ -129,6 +129,7 @@ class Accueil
        $nb = $this->getBD()->exec($requete);
 
     } 
+
     // **********************************
     public function setNbrVues($nbrVues,$nArticle){
         
@@ -138,9 +139,9 @@ class Accueil
 
     } 
     // **********************************
-    public function setSondageMois(){
+    public function setSondageMois($sondage,$nBtnRadio){
         
-        $requete = "UPDATE reponse SET nombre_click=2 WHERE reponse_ID=1";
+        $requete = "UPDATE reponse SET nombre_click='".$sondage."' WHERE nombre_click=3";
         $nb = $this->getBD()->exec($requete);
                                                                                                                                                                      
 
@@ -148,7 +149,7 @@ class Accueil
     // **********************************
     public function getSondageMois(){
         
-        $req =$this->idbd->query("SELECT nombre_click FROM reponse");
+        $req =$this->idbd->query("SELECT reponse_ID,nom_reponse,nombre_click FROM reponse");
 
         if (!$req) {
                   
@@ -201,10 +202,6 @@ class Accueil
                 
         
     }
-    
-    
-   		
-    
     
 }
 ?>

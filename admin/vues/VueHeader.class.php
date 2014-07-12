@@ -1,4 +1,33 @@
-<!DOCTYPE html>
+<?php
+/**
+ * Class VueHeader
+ * 
+ * 
+ * @author Jonathan Martel
+ * @version 1.0
+ * @update 2013-12-11
+ * @license Creative Commons BY-NC 3.0 (Licence Creative Commons Attribution - Pas d’utilisation commerciale 3.0 non transposé)
+ * @license http://creativecommons.org/licenses/by-nc/3.0/deed.fr
+ * 
+ */
+
+
+class VueHeader {
+	//private $_aInfo;
+	/*public function __construct()
+	{
+		$this->_aInfo = $aInfo;
+	}
+	/**
+	 * Affiche la page d'accueil 
+	 * @access public
+	 * 
+	 */
+	
+	
+	public function AfficheEntete()	{
+	?>
+	<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -43,7 +72,7 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                       <ul class="nav navbar-nav">
                         <li class="active"><a href="index.php">Accueil</a></li>
-                        <li><a href="adminArticles.php">Articles </a></li>
+                        <li><a href="index.php?p=articles&cat=adminArticles">Articles </a></li>
                         <li><a href="adminMembres.php">Membres </a></li>
                         <li><a href="adminForum.php">Forum </a></li>  
                         <li><a href="adminActualites.php">Actualités </a></li>  
@@ -66,3 +95,9 @@
              </div><!-- /.container-fluid -->
             </nav>
         
+	<?php
+	}
+	
+
+}
+?>

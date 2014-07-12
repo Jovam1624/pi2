@@ -35,7 +35,7 @@ class VueForum {
                                     <li><i class="icon-calendar"></i><a href="#"><?= $post['billet_date'] ?></a></li>
                                     <li><i class="icon-comments"></i><a href="index.php?p=forum&id=<?= $post['billet_ID'] ?>"><?= $postComments[$post['billet_ID']]; ?> Commentaire<?= ($postComments[$post['billet_ID']]>1)?'s':'';  ?></a></li>
                                 </ul>
-                                
+                                <input type="hidden" class="champ-hidden" value=<?= $post['billet_ID'] ?> >
                                 <a href="#" class="pull-right"><a href="index.php?p=forum&id=<?= $post['billet_ID'] ?>">Lire la suite</a><i class="icon-angle-right"></i></a>
                             </div>
                         </article>

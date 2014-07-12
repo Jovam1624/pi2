@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @class VueContact
  * ***************
@@ -22,7 +23,7 @@ class VueAccueil {
 	 * @access public
 	 * 
 	 */
-	public function afficheAccueil($monarticle,$monArtPopulaire,$nbrIdees,$nbrClick,$plusLu, $plusPartage, $plusCommente) {
+	public function afficheAccueil($monarticle,$monArtPopulaire,$nbrIdees,$nbrClick,$plusLu, $plusPartage, $plusCommente,$sondageMois) {
 	//$this->_vueHeader->AfficheEntete();
 	
 		?>
@@ -34,16 +35,17 @@ class VueAccueil {
      	    	
 	 	      for ($i = 0;$i < 6; $i++) {
             ?>
+            <input type="hidden" name="verifLike" id="verifLike" value=<?php echo $_SESSION['like']; ?>>
       	  	<article class="col-xs-12 col-sm-6 col-md-6 idee">
          	<!-- le thumbnail -->
          	  <div class="thumbnail">
-                <a href=<?php echo "index.php?p=articles&id=".$monarticle[$i]['article_ID'];?>><img src=<?php echo "./img/articles/".$monarticle[$i]["article_image"]?> alt="image application"></a>
+                <img src=<?php echo "./img/articles/".$monarticle[$i]["article_image"]?> alt="image application">
             	  <div class="caption">
-               		<h4><a href=<?php echo "index.php?p=articles&id=".$monarticle[$i]['article_ID'];?>><?php echo ($monarticle[$i]["article_titre"]);?></h4>
-               		<a href=<?php echo "index.php?p=articles&id=".$monarticle[$i]['article_ID'];?>>
+               		<h4><?php echo ($monarticle[$i]["article_titre"]);?></h4>
+               		
                   	  <!-- contenu du thumbnails -->
                   	  <p><?php echo Coupechaine::coupeChaineArticle($monarticle[$i]["article_contenu"]); ?></p>
-               		</a>
+               		
                	  	<!-- les icones du thumbnails -->
                		<div class="thumbs-up btnThumbs">
                			<input type="hidden" name="nArticle" value=<?php echo $monarticle[$i]["article_ID"]; ?>>
@@ -55,6 +57,8 @@ class VueAccueil {
                		<div class="comment btnThumbs">
                   	  <input type="text" name="statistiques" value="3" disabled>
                		</div>
+               		 <div class="medaille btnThumbs">
+                    </div>
                		<!-- bouton lire la suite -->
                		<a href=<?php echo "index.php?p=articles&id=".$monarticle[$i]['article_ID'];?> class="btn btn-default consultez" role="button">Consultez
                		</a>
@@ -69,24 +73,52 @@ class VueAccueil {
    		  <!-- col-xs-12  -->
 		</article>
 		<aside>
-		   <!-- debut aside  -->
 		   <aside class="col-md-4 visible-md visible-lg">
-		      <ul class="list-group">
-		         <li class="list-group-item active">STATISTIQUES ACTUELLES</li>
-		         <li class="list-group-item">
-		            <span class="badge"><?php echo $nbrIdees; ?></span>
-		            Nombre d'inventions
-		         </li>
-		         <li class="list-group-item">
-		            <span class="badge"><?php echo $nbrIdees; ?></span>       
-		            Nombre d'inventeurs
-		         </li>
-		         <li class="list-group-item"> 
-		            <span class="badge">2</span>
-		            Nombre de bailleurs de fonds
-		         </li>
-		      </ul>
-		   </aside>
+		     <div class="panel panel-default">
+		        <div class="panel-heading">
+		           <h3 class="panel-title">SONDAGE DU MOIS</h3>
+		        </div>
+		        <div class="panel-body sondage">
+		           <form action="#" class="form">
+
+		              <p>
+		                 Que pensez vous de l'invention des arbres lumineux ?
+		              </p>
+		              <?php
+       		 
+	 	      			for ($i = 0;$i < 3; $i++) {
+            		  ?>
+		              <input type="radio" name="sondage" class="ChoixSondage" id="btn"<?php echo $sondageMois[$i]["reponse_ID"]; ?> value=<?php echo $sondageMois[$i]["nombre_click"]; ?> checked="checked"> 
+		              <label for="btn1"><?php echo $sondageMois[$i]["nom_reponse"]; ?></label>
+		              <?php		           
+
+             		}
+         
+		            ?>
+		              <input class="btn btn-default" type="button" name="sondage" class="sondage" id="sondage-mois" value="Valider">
+		           
+		           </form>
+		           <span id="spinner"></span>
+		           <div class="graphe">
+		           	
+				    <?php
+		           
+             		for ($i = 0;$i < 3; $i++) {
+         
+		            ?>
+					
+					<div class="chargement"><?php echo $nbrClick[$i][ 'nombre_click' ] ?></div>
+					 <?php
+		           
+
+             		}
+         
+		            ?>
+		        </div>
+				 </div>
+		     </div>
+		    
+		  </aside>
 		   <!-- file actualit&eacute; -->
 		    <aside class="col-md-4 visible-md visible-lg"> <!-- ****** Modifications por le Fil d'actualit&eacute; par Vanessa ****** -->
 		      <div class="panel-group" id="accordion">
@@ -183,44 +215,26 @@ class VueAccueil {
        			  </div>
    			   </div>
   		  </aside>
+  		   <!-- debut aside  -->
+		   <aside class="col-md-4 visible-md visible-lg">
+		       <!--<ul class="list-group">
+		         <li class="list-group-item active">STATISTIQUES ACTUELLES</li>
+		         <li class="list-group-item">
+		            <span class="badge"><?php echo $nbrIdees; ?></span>
+		            Nombre d'inventions
+		         </li>
+		         <li class="list-group-item">
+		            <span class="badge"><?php echo $nbrIdees; ?></span>       
+		            Nombre d'inventeurs
+		         </li>
+		         <li class="list-group-item"> 
+		            <span class="badge">2</span>
+		            Nombre de bailleurs de fonds
+		         </li>
+		      </ul>
+		   </aside>-->
 		  <!-- sondage -->
-		  <aside class="col-md-4 visible-md visible-lg">
-		     <div class="panel panel-default">
-		        <div class="panel-heading">
-		           <h3 class="panel-title">SONDAGE DU MOIS</h3>
-		        </div>
-		        <div class="panel-body sondage">
-		           <form action="#" class="form">
-		              <p>
-		                 Que pensez vous de l'invention des arbres lumineux ?
-		              </p>
-		              <input type="radio" name="sondage" class="sondage" id="btn1" value="1" checked="checked"> 
-		              <label for="btn1">&nbsp;Excellente invention</label>
-		              <input type="radio" name="sondage" class="sondage"id="btn2" value="2">
-		              <label for="btn2">&nbsp;Bonne invention</label>
-		              <input type="radio" name="sondage" class="sondage" id="btn3" value="3">
-		              <label for="btn3">&nbsp;Tr&egrave;s mauvaise invention</label>
-		              <input class="btn btn-default" type="button" name="sondage" class="sondage" id="sondage-mois" value="Valider">
-		           </form>
-		           <div class="graphe">
-				    <?php
-		           
-             		for ($i = 0;$i < 3; $i++) {
-         
-		            ?>
-					
-					<div class="chargement"><?php echo $nbrClick[$i][ 'nombre_click' ] ?></div>
-					 <?php
-		           
-
-             		}
-         
-		            ?>
-		        </div>
-				 </div>
-		     </div>
-		    
-		  </aside>
+		 
 	   </aside>
 	   <!-- fin aside -->
 

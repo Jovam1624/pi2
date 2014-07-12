@@ -4,7 +4,7 @@
           
 			$('.commentaire').click(function(evt) {
 				
-				
+				var id_article = $('.champ-hidden').val();
 				var nom = $('#nom').val();
 				var courriel = $('#courriel').val();
 				var message = $('#message').val();
@@ -13,7 +13,7 @@
                      url: './ajaxControler.php',
                      type: 'POST',
                      data: {
-                  
+                  	  id : id_article,
                       nom : nom,
 					  courriel : courriel,
 					  message : message

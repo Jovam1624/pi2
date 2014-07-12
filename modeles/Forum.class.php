@@ -120,9 +120,9 @@ class Forum {
         }
     }
     //  rajouter par A.A le 09-06-2014 a 12:19
-    public function setCommentaire($nom,$courriel,$message){
+    public function setCommentaire($id,$nom,$courriel,$message){
     
-        $requete = "INSERT INTO comment_billet VALUES ('','1','".$nom."','".$courriel."','titre_par_defaut','".$message."','CURRENT_TIMESTAMP','1','1')";
+        $requete = "INSERT INTO comment_billet VALUES ('','1','".$nom."','".$courriel."','titre_par_defaut','".$message."','CURRENT_TIMESTAMP','".$id."','1')";
         
         $nb = $this->getBD()->exec($requete);
     
