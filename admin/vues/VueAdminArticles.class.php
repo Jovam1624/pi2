@@ -1,6 +1,27 @@
-<?php include ("./includes/header.php"); ?>
+<?php
 
-        <!-- Article principal -->
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ * Description of VueForum
+ *
+ * @author JacquesJunior
+ */
+class VueAdminArticles {
+   
+    //declaration du pied de page  et de l'entete
+    private $_vueHeader;
+    private $_vueFooter;
+    
+    //declaration de la methode pour afficher la page forum
+    public function afficherAdminArticles(){
+        //
+        ?>
+         <!-- Article principal -->
         <article >
             <div class="row">
                 <!-- ARTICLES, BREVETS,  FINANCEMENT, PUBLICATIONS -->
@@ -136,5 +157,6 @@
             </div>
         </section>
     </div>
-   
-	<?php include ("./includes/footer.php"); ?>
+        <?php
+    }
+}
