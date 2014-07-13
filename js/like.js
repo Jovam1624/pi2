@@ -11,7 +11,7 @@
                 
             }
             for (var i = 0; i < lireLaSuite.length; i++) {
-                lireLaSuite[i].addEventListener("mouseover", envoiNbrVues, true);
+                lireLaSuite[i].addEventListener("click", envoiNbrVues, true);
                 
             }
 
@@ -20,14 +20,15 @@
         // Fonction pour envoyer le nombre de vues dans la BD
         function envoiNbrVues(evt){
         
-           
+            
             var liens = evt.currentTarget;
-            var comment = liens.previousSibling.previousSibling.previousSibling.previousSibling;
-			var vues = comment.previousSibling.previousSibling.firstChild.nextSibling;
+            var comment = liens.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling;
+			var vues = comment.previousSibling.previousSibling.previousSibling.firstChild.nextSibling;
 			
 			var attriLien = liens.getAttribute('href');
 			 
             var nArticle = attriLien.substring(attriLien.indexOf('id')+3); //extraction de la valeur du bouton "consulter"
+            
             //objet Ajax qui envoie le numero d'article et le nombre de vues dans le controleur Ajax
             $.ajax({
                      url: './ajaxControler.php',
@@ -43,18 +44,25 @@
         }
         // Fonction pour envoyer le nombre de likes dans la BD
         function envoi(evt){
-
+            var verifLike = document.getElementById("verifLike");
+                verifLike = verifLike.value;
            	var nbrLike = evt.currentTarget.parentNode.previousSibling.previousSibling;
                 evt.currentTarget.setAttribute("class", "glyphicon glyphicon-thumbs-up thumbs-up-desactive");
-           	console.log(nbrLike.value);
+           	
           	var numeroArticle = nbrLike.previousSibling.previousSibling;
-                
+               
         	var lesLikes = document.getElementsByClassName("glyphicon-thumbs-up");
             for (var i = 0; i < lesLikes.length; i++) {
-                lesLikes[i].removeEventListener("click", envoi, false);
+                    
+                    lesLikes[i].removeEventListener("click", envoi, false);
                 
+                                
             }
-           
+            if(verifLike == 1){
+                //evt.currentTarget.className = "dectiver";
+
+            }
+             
             // Objet Ajax qui envoie le numéro d'article et de likes dans le contrôleur Ajax
             $.ajax({
                 url: './ajaxControler.php',

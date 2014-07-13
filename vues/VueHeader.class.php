@@ -31,7 +31,9 @@ class VueHeader {
       <link href="./css/style.css" rel="stylesheet">
       <link href="./css/forum.css" rel="stylesheet">
       <link href="./css/font-awesome.css" rel="stylesheet">  
+       
        <link href="./css/fonts.css" rel="stylesheet" type="text/css" >
+
  
     </head>
     <body>
@@ -52,8 +54,8 @@ class VueHeader {
    				<div class="inscription">
              		<div class="reseaux-sociaux">
               		 <span class="icon-linkedin"></span>
-               		<span class="icon-twitter"></span>
-               		<span class="icon-facebook"></span>
+               		<span class="icon-twitter3"></span>
+               		<span class="icon-facebook3"></span>
             	</div>
    				<?php if(isset($_SESSION['utilisateur'])) {
    							?>
