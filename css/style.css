@@ -15,8 +15,7 @@ body > .container-globale /* container-globale du document */
 	padding-left:0;
 	padding-right:0;
 	padding-top:10px;
-	border:solid 1px #dddddd;
-	background-image:url(../img/bg-contenu.png);
+	background-image:url(../img/accueil/bg-contenu.png);
 }
 
 #retour{
@@ -258,6 +257,7 @@ figure a {
 	float:left;
 	color:#999999;
 	padding:5px;
+	margin-left:1px;
 	background-color:#F6F6F6;
 }
 .btnThumbs  > input[type=text] /* les input dans les thumbnails*/
@@ -349,14 +349,14 @@ summary > h6 /* partie copyright*/
 }
 .sondage{
 
-	position:absolute;
+	
     z-index: 1;
 }
 #spinner
 {
-	position: relative;
+	position:relative;
 	display: block;
-	top: 60px;
+	top: 50px;
 	left:40%;
 
 

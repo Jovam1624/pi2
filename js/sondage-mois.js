@@ -5,7 +5,6 @@
 			$('#sondage-mois').click(function(evt) {
 								
 				var sondage = $('input[type=radio][name=sondage]:checked').attr('value'); //récuperation des boutons radios
-				console.log(sondage);
 				
 				// Objet Ajax pour envoyer la valeur du sondage radio 
 				$.ajax({
@@ -14,13 +13,14 @@
                      data: {
                     //la valeur du champ numéro du dossier
                      //nArticle: parseInt(numeroArticle.value),
-                     sondage: sondage
+                     sondage: parseFloat(sondage)+parseFloat(1)
                      },
 					success: function(html) //si la requête a été exécutée avec succès
 					{ 
-                     console.log('ok'); 
+                     //console.log('ok'); 
 					}
 				});
+				parseFloat($('input[type=radio][name=sondage]:checked').attr('value'))+parseFloat(1);
 				
 				//JQuery qui cache les classes pour afficher les résultats du sondage après le vote
 				$('.form').addClass( "form-sondage" );
@@ -28,7 +28,9 @@
 
 				//JQuery qui affiche les résultats du sondage après le vote
 				$(".chargement").each(function(index, element) {
+
 				var pourcentage = parseInt($(element).text()); 
+
 				$('#spinner').addClass( "icon-spinner" ).fadeIn(3000);
 				$('#spinner').addClass( "icon-spinner" ).fadeTo(2900,0);
 				$('#spinner').addClass( "icon-spinner-rotation" );
