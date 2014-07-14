@@ -27,6 +27,17 @@ class VueAccueil {
 	//$this->_vueHeader->AfficheEntete();
 	
 		?>
+		 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+               <!-- contenu du carousel -->
+               <div class="carousel-inner hidden-xs">
+                  <div class="item active">
+                     <img src="./img/accueil/image.png" alt="image slide">
+                  </div>
+                  <div class="item">
+                     <img src="./img/accueil/image.png" alt="image slide">
+                  </div>
+               </div>
+            </div>
 		<!-- debut de l'ensemble des articles (id&eacute;es) -->
 		<article class="enssemble-articles">
   	 	  <article class="col-xs-12 col-md-8">
@@ -35,7 +46,7 @@ class VueAccueil {
      	    	
 	 	      for ($i = 0;$i < 6; $i++) {
             ?>
-            <input type="hidden" name="verifLike" id="verifLike" value=<?php echo $_SESSION['like']; ?>>
+            
       	  	<article class="col-xs-12 col-sm-6 col-md-6 idee">
          	<!-- le thumbnail -->
          	  <div class="thumbnail">

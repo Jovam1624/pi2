@@ -49,8 +49,15 @@ class VueAdmin {
     <!-- enssemble contenu-->
           <div class="main row">
             <article class="content col-md-12">
-            <form class="form-horizontal" role="form">
+            <form action="index.php?p=accueil" method="POST" class="form-horizontal" role="form">
   <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      
+      
+          <h4> ADMINISTRATION EUREKA </h4>
+        
+      
+    </div>
     <label for="inputEmail3" class="col-sm-2 control-label">User</label>
     <div class="col-sm-10">
       <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
@@ -63,17 +70,11 @@ class VueAdmin {
     </div>
   </div>
   <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-      <div class="checkbox">
-        <label>
-          <input type="checkbox"> Remember me
-        </label>
-      </div>
-    </div>
+    
   </div>
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
-      <button type="submit" class="btn btn-default">Sign in</button>
+      <button type="submit" class="btn btn-default">Connexion</button>
     </div>
   </div>
 </form>

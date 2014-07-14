@@ -63,15 +63,7 @@ class Accueil
             
         }
         
-	    // filtrer le resultat retourné afin de l'envoyer a la vue(acceuil)
-	    /*for ($i = 0; $i < count($this->monArticle); $i++) {
-	        
-	        // mettre chaque resultat dans un tableau quis sera envoyer a chaque itération
-
-	        $titre[$i]   = $this->monArticle[$i]['article_titre'];
-	        $contenu[$i] = $this->monArticle[$i]['article_contenu'];
-	        $image[$i]   = $this->monArticle[$i]['art_image'];
-	    }*/
+	   
        	return $this->monArticle;
            
     }
@@ -95,16 +87,6 @@ class Accueil
             
         }
        
-
-	    /*
-	    for ($i = 0; $i < count($artPopulaire); $i++) {
-	        
-	        // mettre chaque resultat dans un tableau quis sera envoyer a chaque itération
-	           $titreArtPopul[$i] = $artPopulaire[$i]['article_titre'];
-	           $contenuArtPopul[$i] = $artPopulaire[$i]['article_contenu'];
-	        //$imageArtPopul[$i]   = $artPopulaire[$i]['art_image'];
-	        
-	    }*/
 
         return $this->monArtPopulaire;
         

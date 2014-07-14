@@ -26,6 +26,7 @@ class VueFooter {
    
     <script src="js/bootstrap.min.js"></script>
    <script src="js/articles.js"></script>
+   <script src="js/sondage-admin.js"></script>
     <script src="js/scripts.js"></script>
   </body>
 </html>

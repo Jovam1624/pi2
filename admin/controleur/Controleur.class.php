@@ -32,6 +32,11 @@ class Controleur
 					$this->header();
 					$this->accueil();
 					$this->footer();
+					break;
+				case 'sondage':
+					$this->header();
+					$this->sondage();
+					$this->footer();
 					break;	
 				case 'adminArticles':
 					$this->header();
@@ -57,6 +62,20 @@ class Controleur
 			$fVue = new VueFooter();
 			$fVue->afficheFooter();
 		}  
+		public function accueil(){
+    		
+			$bdd = Accueil::getInstance("e1395254", "dbconnect");			 
+			$aVue = new VueAccueil();
+			$aVue->afficheAccueilAdmin();
+			
+		}
+		public function sondage(){
+    		
+			$bdd = Sondage::getInstance("e1395254", "dbconnect");			 
+			$aVue = new VueSondageAdmin();
+			$aVue->afficheSondageAdmin();
+			
+		}
 		public function adminArticles(){
 
 			$bdd = AdminArticles::getInstance("e1395254", "dbconnect");

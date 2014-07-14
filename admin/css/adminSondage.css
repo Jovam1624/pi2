@@ -1,0 +1,40 @@
+.icones-admin-sondage{
+	width:100%;
+	padding-top:6px;
+	float:left;
+	border-radius:3px;
+	background-color:#F4F4F4;
+	border:solid 1px #E3E3E3;
+}
+.support-icones{
+	width:40%;
+	float:right;
+	margin-right:0;
+	padding-bottom:10px;
+
+}
+.table{
+	margin-top:50px;
+}
+.icone-sondage{
+	font-size:25px;
+	padding:10px;
+	float:right;
+
+}
+.glyphicon-question-sign{
+
+	color:#cccccc;
+}
+.glyphicon-cog{
+
+	color:#E15812;
+}
+.glyphicon-minus-sign{
+
+	color:#E5181F;
+}
+.glyphicon-plus-sign{
+
+	color:#4D9100;
+}

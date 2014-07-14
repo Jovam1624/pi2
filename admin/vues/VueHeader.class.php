@@ -38,6 +38,7 @@ class VueHeader {
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <link href="css/adminSondage.css" rel="stylesheet">
       <link rel="stylesheet" href="css/membres.css">
       <link rel="stylesheet" href="css/inscription.css">
       <link href="css/articles.css" rel="stylesheet">

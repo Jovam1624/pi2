@@ -95,6 +95,7 @@ figure{
 	width:180px;
 	height:80px;
 	float:left;
+	margin:0;
 	background-color:#019875;
     padding: 0;
 	
@@ -243,9 +244,6 @@ figure > span{
 .caption  > .comment > input[type=text]
 {
 	color:#999999;
-}
-figure{
-	margin-left: -25px;
 }
 figure a {
 	text-decoration: none;

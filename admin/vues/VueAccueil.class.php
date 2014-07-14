@@ -26,7 +26,7 @@ class VueAccueil {
 	 * @access public
 	 * 
 	 */
-	public function afficheAccueil($monarticle,$monArtPopulaire) {
+	public function afficheAccueilAdmin() {
 	//$this->_vueHeader->AfficheEntete();
 	
 		?>
@@ -43,7 +43,7 @@ class VueAccueil {
                     </a>
                   </div>
                   <div class="col-xs-6 col-md-3">
-                    <a href="adminArticles.php" class="thumbnail">
+                    <a href="index.php?p=adminArticles" class="thumbnail">
                       <img src="./img/icone-2.png" alt="icone rubrique">
                     <small>Gestion - Articles</small>    
                     </a>
@@ -67,7 +67,7 @@ class VueAccueil {
                     </a>
                   </div>
                    <div class="col-xs-6 col-md-3">
-                    <a href="adminActualites.php" class="thumbnail">
+                    <a href="index.php?p=sondage" class="thumbnail">
                       <img src="./img/icone-6.png" alt="icone rubrique">
                     <small>Gestion - Actualités</small>    
                     </a>
@@ -90,25 +90,14 @@ class VueAccueil {
     </aside>
   </div>
 
-<?php include ("./includes/footer.php"); ?>
+<?php include ("VueFooter.class.php"); ?>
 
 
 
 	   <?php
-	   //$this->_vueFooter->AffichePied();
+	   
 	}
-	public function AfficheListe($aListe) {
-		$this->_vueGen->AfficheEntete();
-		?>
-		
-		<article>
-			<h1>Bienvenue sur Simple MVC Structure </h1>
-			<p>Simple MVC Structure  n'est pas un framework, mais seulement une structure de base qui permet de monter un MVC rapidement en php. 
-				Il suffit de forker le <a href="#">dépot Github</a> et de dupliquer les classes vues et modele afin d'en disposer à votre convenance.</p>
-		</article>
-		<?php
-		$this->_vueGen->AffichePied();
-	}
+	
 		
 	
 	
