@@ -35,15 +35,13 @@ class Controleur
 					$this->header();
 					$this->contact();
 					break;	
-				case 'inscription':
-					//if(isset($_SESSION["utilisateur"])){
-					//$this->header();	
-					//$this->accueil();
-					//} else {
-						
-					$this->inscription();
-					//	}
+				case 'connexion':
+					$this->connexion();
 					break;	
+				case 'inscription':
+					$this->header();
+					$this->inscription();
+					break;		
                 case 'recherche':
                 	$this->header();
 					$this->recherche();
@@ -139,28 +137,54 @@ class Controleur
 			$cVue->afficheContact();
 		}
 
-		public function inscription(){
+		public function connexion(){
 			
 			$bdd = Membre::getInstance("e1395254", "dbconnect");
-			$bdd->verifyMembre();
+			//$bdd->connectMembre();
 			$err ="";
 			if(isset($_SESSION["utilisateur"])){
 				$this->header();	
 				$this->accueil();
 				} else if (isset($_POST["connecter"])) {
-					//si pas ok logging
-					$iVue= new VueInscription();
-					$this->header();
-					$err = $bdd->afficheErreur();
-					$iVue->afficheInscription($err);
-				}else{
-					$iVue= new VueInscription();
-					$this->header();
-					$iVue->afficheInscription($err);
-					
-					}	
+					$err = $bdd->verifyErreurLogin();
+					if($err != ""){
+						$cVue= new VueMembre();
+						$this->header();
+						$cVue->afficheConnexion($err);
+						}else{
+						$this->header();
+						$this->accueil();
+						}	
+			}else {
+				$cVue= new VueMembre();
+				$this->header();
+				$cVue->afficheConnexion($err);
+			}
 			
 
+		}	
+
+		public function inscription(){
+			$bdd = Membre::getInstance("e1395254", "dbconnect");
+			$tabErr="";
+			if(isset($_POST['inscription'])){
+				$tabErr = $bdd->verifyErreurInscription();
+				//var_dump($tabErr);
+				$valid = $bdd->validFormulaire();
+				//valid le formulaire et envoie si comforme 
+				if($valid == true){
+					$bdd->AjoutMembre($valid);
+					$this->accueil();
+					}else {
+						$iVue = new VueMembre();
+						$iVue->afficheFormulaire($tabErr);	
+					}
+				
+				} else {
+					$iVue = new VueMembre();
+					$iVue->afficheFormulaire($tabErr);	
+				}
+				
 		}
         
         public function recherche(){

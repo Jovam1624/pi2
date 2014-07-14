@@ -46,29 +46,29 @@ class VueHeader {
     	<nav class="navbar navbar-default navbar-fixed-top hidden-xs" role="navigation">
       		<div class="container">
     		<!--<a class="navbar-brand hidden-xs" href="index.php"><img src="./img/logo.png" alt="logo"/></a>-->
-     			<figure><h1>EUREKA</h1>
-     				<span>Journal d'id&eacute;es</span>
-     			</figure>	
-   				<div class="inscription">
-             		<div class="reseaux-sociaux">
-              		 <span class="icon-linkedin"></span>
-               		<span class="icon-twitter"></span>
-               		<span class="icon-facebook"></span>
-            	</div>
-   				<?php if(isset($_SESSION['utilisateur'])) {
+       			<figure><h1>EUREKA</h1>
+       				<span>Journal d'id&eacute;es</span>
+       			</figure>	
+     				<div class="inscription col-md-4">
+               		<div class="reseaux-sociaux">
+                		 <span class="icon-linkedin"></span>
+                 		 <span class="icon-twitter"></span>
+                 		 <span class="icon-facebook"></span>
+                  </div>
+   				     <?php if(isset($_SESSION['utilisateur'])) {
    							?>
                 	<form role="form" action="index.php?p=index" method="POST">
                   	<small>Bienvenue <?= $_SESSION['utilisateur'] ?></small>
-                  	<button type="submit" name="deconnect" class="btn btn-default btn-clique">Déconnexion</button>
-                	</form>    							
-   				<?php
-   				} else {
-   					?>
-   					<a href="index.php?p=inscription" type="button" class="btn btn-primary btn-sm btn-clique">Connexion</a>
-      				<!-- <a href="index.php?p=inscription" type="button" class="btn btn-default btn-sm">Inscription</a> -->
-      			<?php
-   				}
-				?>
+                  	<button type="submit" name="deconnect" class="btn btn-default btn-sm btn-clique">Déconnexion</button>
+                 	</form>    							
+       				<?php
+       				} else {
+       					?>
+       					<a href="index.php?p=connexion" type="button" class="btn btn-default btn-sm btn-clique">Connexion</a>
+          			<a href="index.php?p=inscription" type="button" class="btn btn-default btn-sm btn-clique">Inscription</a> 
+              <?php
+       				}
+    				?>
   			</div>
 			</div>
 	    </nav>

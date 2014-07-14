@@ -73,13 +73,12 @@ class VueContact {
                                 <input type="text" class="form-control" id="exampleInputHuman" name="human" placeholder="Saisir ici" required>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label class="col-sm-4 control-label" for="exampleInput"></label>
-                            <div class="col-sm-3">
-                                <button type="submit" name="soumettre" class="btn btn-sm form-control bouton">Soumettre</button>
-                            </div>
+                                                                                   
+                            </form> <!-- ici finit le form -->
+                            <button type="submit" name="soumettre" class="btn btn-default form-control bouton">Soumettre</button>
+
                         </div>
-                    </form> <!-- ici finit le form -->
+                   
                     <?php
                          if (isset($_POST['soumettre'])){           
                             $pnom = $_POST['pnom'];

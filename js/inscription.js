@@ -3,7 +3,7 @@
 // Pas encore actif dans la version beta
 
 
-if(document.getElementById('boutonInv')){
+/*if(document.getElementById('boutonInv')){
     document.getElementById("boutonInv").addEventListener("click", valideFrom,false);
 } else if (document.getElementById("boutonPhi")) {    
     document.getElementById("boutonPhi").addEventListener("click", valideFrom,false);
@@ -67,4 +67,143 @@ function valideFrom(){
         document.getElementById("exampleInputPassword1").className+=" erreur"; 
     }
      
-}    
+}  */
+
+ window.addEventListener("load", function(){
+             
+            var alias = document.getElementById("alias"); 
+            //var courriel = document.getElementById("email"); 
+             //alias.addEventListener("click", testUser, true);
+            //console.log(courriel);
+
+        });
+        
+
+         var verif = {
+
+         pile: 0,
+         verif: function () {
+         this.pile--;
+         if (this.pile == 0) {
+
+            // l'envoi de la variable numéro du dossier
+             $.ajax({
+                
+                // la page qui va effectuer la requette 
+                 url: './ajaxControler.php',
+                 type: 'POST',
+                 data: {
+                    //la valeur du champ numéro du dossier
+                     alias: $('#alias').val()
+                    //courriel: $('#email').val() 
+                 },
+
+                 // succes c'est la fonction qui va recevoir l'objet ajax (la réponse)
+                  success: function(msg){ 
+                        if(msg == 'ok'){ 
+                              
+							console.log('ce pseudo existe');
+							$("#alias").addClass("object_ok");							
+                             //$("#ifexist").removeClass('nbr_error');
+                             //$("#ifexist").addClass("object_ok");
+                             //$(this).html('&nbsp;<img src="../images/tick.gif">');
+                         } else {
+							console.log('ce pseudo n\'existe pas');
+                            // $("#ifexist").removeClass('object_ok'); 
+                            // $("#ifexist").addClass("nbr_error");
+                             //$(this).html(msg);
+                             
+                         }
+         
+                         
+                 }
+         
+         
+             });
+         
+         }
+         
+         }
+         
+         }
+		 
+		  // verif pour l'email
+ 
+           var verifEmail = {
+ 
+        pile: 0,
+         verif: function () {
+          this.pile--;
+          if (this.pile == 0) {
+ 
+             // l'envoi de la variable numéro du dossier
+              $.ajax({
+                 
+                 // la page qui va effectuer la requette 
+                  url: './ajaxControler.php',
+                  type: 'POST',
+                  data: {
+                     //la valeur du champ numéro du dossier
+                      email: $('#email').val() 
+                  },
+ 
+                     success: function(msg){  
+ 
+                         if(msg == 'true')
+                         { 
+                             
+                             console.log('cette email existe dèja');
+                             //$("#username").removeClass('object_error'); // if necessary
+                             $("#email").addClass("object_ok");
+                            // $(this).html('&nbsp;<img src="tick.gif" align="absmiddle">');
+                         }  
+                         else  
+                         {  
+                             console.log('cette email n\'existe pas');
+                             //$("#username").removeClass('object_ok'); // if necessary
+                             //$("#username").addClass("object_error");
+                             //$(this).html(msg);
+                         }  
+                        
+                       
+ 
+                      } 
+          
+          
+              });
+          
+          }
+          
+          }
+          
+          }
+		 
+		 	 
+		 
+         // fonction qui controle si l'utilisateur est entrain d'ecrire
+         $(function () {
+         
+         $('#alias').keyup(function (e) {
+         verif.pile++; 
+         
+         window.setTimeout('verif.verif()', 500); // chaque 1/5 une requette va etre envoyer
+         
+         
+         })
+		 
+		  $(function () {
+         
+         $('#email').keyup(function (e) {
+         verif.pile++; 
+         
+         window.setTimeout('verif.verif()', 500); // chaque 1/5 une requette va etre envoyer
+         
+         
+         })
+
+      
+
+         
+         });
+
+
