@@ -84,9 +84,10 @@ class Controleur
 			$nbrClick = $bdd->getSondageMois();
 			$plusLu = $bdd-> get_article_plusLu();
 			$plusPartage = $bdd-> get_article_plusPartage(); 
-			$plusCommente = $bdd-> get_article_plusCommente(); 
+			$plusCommente = $bdd-> get_article_plusCommente();
+			$sondageMois = $bdd-> getSondageMois(); 
 			$aVue = new VueAccueil();
-			$aVue->afficheAccueil($monarticle,$monArtPopulaire,$nbrIdees,$nbrClick,$plusLu, $plusPartage, $plusCommente);
+			$aVue->afficheAccueil($monarticle,$monArtPopulaire,$nbrIdees,$nbrClick,$plusLu, $plusPartage, $plusCommente,$sondageMois);
 		}
 		
 		public function articles()	{

@@ -15,8 +15,7 @@ body > .container-globale /* container-globale du document */
 	padding-left:0;
 	padding-right:0;
 	padding-top:10px;
-	border:solid 1px #dddddd;
-	background-image:url(../img/bg-contenu.png);
+	background-image:url(../img/accueil/bg-contenu.png);
 }
 
 #retour{
@@ -96,6 +95,7 @@ figure{
 	width:180px;
 	height:80px;
 	float:left;
+	margin:0;
 	background-color:#019875;
     padding: 0;
 	
@@ -245,9 +245,6 @@ figure > span{
 {
 	color:#999999;
 }
-figure{
-	margin-left: -25px;
-}
 figure a {
 	text-decoration: none;
 	color:white;
@@ -258,6 +255,7 @@ figure a {
 	float:left;
 	color:#999999;
 	padding:5px;
+	margin-left:1px;
 	background-color:#F6F6F6;
 }
 .btnThumbs  > input[type=text] /* les input dans les thumbnails*/
@@ -347,6 +345,20 @@ summary > h6 /* partie copyright*/
 	margin-left:1%;
 	margin-top:2%;
 }
+.sondage{
+
+	
+    z-index: 1;
+}
+#spinner
+{
+	position:relative;
+	display: block;
+	top: 50px;
+	left:40%;
+
+
+}
 .sondage  label{
     display: block;  
 }
@@ -356,4 +368,13 @@ summary > h6 /* partie copyright*/
 .btn-clique {
     background-color : #019875;
 }
+.form > label{
 
+	margin-left:5%;
+	margin-bottom:3%;
+}
+.form > label:nth-of-type(3){
+
+	margin-bottom:5%;
+	
+}
