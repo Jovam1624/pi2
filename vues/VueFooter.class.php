@@ -52,6 +52,8 @@ class VueFooter {
 	 <script src="js/sondage-mois.js"></script>
 	 <script src="js/commentaire.js"></script>
 	  <script src="js/inscription2.js"></script>
+	  <script src="js/verif-user.js"></script>
+	  
 	 <script type="text/javascript">
 	</script> 
   </body>

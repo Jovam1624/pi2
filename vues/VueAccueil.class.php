@@ -71,17 +71,27 @@ class VueAccueil {
                		 <div class="medaille btnThumbs">
                     </div>
                		<!-- bouton lire la suite -->
-               		<a href=<?php echo "index.php?p=articles&id=".$monarticle[$i]['article_ID'];?> class="btn btn-default consultez" role="button">Consultez
+               		<a href=<?php echo "index.php?p=articles&id=".$monarticle[$i]['article_ID'];?>?w=500 rel="popup_name" class="btn btn-default consultez" role="button">Consultez
                		</a>
+
            		 </div>
+
         	  </div>
+
     		</article>
       		<?php
        		  }
          
        		  ?>
+
+
+
   		  </article>
    		  <!-- col-xs-12  -->
+<div id="popup_name" class="le_pop_up">
+	<h2>Connexion</h2>
+	<p>Veuillez vous connecter</p>
+</div>
 		</article>
 		<aside>
 		   <aside class="col-md-4 visible-md visible-lg">
