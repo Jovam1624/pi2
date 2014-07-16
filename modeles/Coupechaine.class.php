@@ -10,7 +10,7 @@
 // Retourne une chaîne de 150 caractères ou moins
 class Coupechaine {
 
-    public static function coupeChaineArticle($chaine, $nbMaxCaracteres = 145) {
+    public static function coupeChaineArticle($chaine, $nbMaxCaracteres = 140) {
             
             if (strlen($chaine) > $nbMaxCaracteres) {
                

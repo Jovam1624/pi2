@@ -17,10 +17,7 @@
 	margin:0 auto;
 	padding-top: 50px;
 }
-.login {
-	text-align: center;
-}
-/* partie ajouter par abdellah le 10-06-2014*/
+
 .object_ok  /* les message d'erreur pour la partie ajax*/
 {
 border: 0.063em solid green; 
@@ -38,3 +35,7 @@ color: #333333;
   font-size:0.80em;
   margin-left:0;
 }
+/*.error{
+	border: 1px solid #FF0000;
+}*/
+

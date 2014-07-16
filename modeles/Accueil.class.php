@@ -16,23 +16,26 @@ class Accueil
     private $monArtPopulaire;
     private $nbrIdees;
     private  $nbrClick;
-    private $mac;
- 	// ****************************************   
- 	public function __construct($base, $param) {
+    private $tabMeta = array('title' => 'page accueil-journal d\'idées Eureka inventions 2014' , 'keywords' => 'accueil,inventions,idées,2014', 
+                            'description' => 'pages accueil-plate-forme pour partager, financer, publier et commenter de nouvelles inventions brefetées ou non - inventions en 2014');
+    
+   
+    // ****************************************   
+    public function __construct($base, $param) {
         require_once($param.".inc.php");
-		$data="mysql:host=".HOST.";dbname=".$base.";charset=utf8";
-		$user=USER;
-		$pass=PASS;
-		try{
-			return $this->idbd = new PDO($data,$user,$pass);
-			
-		} catch(PDOException $pdoe){
-			echo "echec de la connexion : ",$pdoe->getMessage();
-			return false;
-			exit();
-		}
-	}
-	// ***************************************************
+        $data="mysql:host=".HOST.";dbname=".$base.";charset=utf8";
+        $user=USER;
+        $pass=PASS;
+        try{
+            return $this->idbd = new PDO($data,$user,$pass);
+            
+        } catch(PDOException $pdoe){
+            echo "echec de la connexion : ",$pdoe->getMessage();
+            return false;
+            exit();
+        }
+    }
+    // ***************************************************
     // fonction qui va servir pour instancier cette classe 
     public static function getInstance($base, $param)
     {
@@ -46,6 +49,9 @@ class Accueil
     {
         return $this->idbd;
     }
+     public function getMeta(){
+        return $this->tabMeta;
+    }
     // **********************************
     public function getMonarticle()
     {
@@ -54,7 +60,7 @@ class Accueil
     // **********************************
     public function get_article_acceuil(){
         
-        $req =$this->idbd->query("SELECT *FROM articles LIMIT 0,06");
+        $req =$this->idbd->query("SELECT *FROM articles LIMIT 0,08");
 
         if (!$req) {
                   
@@ -68,10 +74,10 @@ class Accueil
             }    
         }
 
-       	return $this->monArticle;
+        return $this->monArticle;
            
     }
-	// *************************************
+    // *************************************
     public function get_article_populaire(){
         
         $reqArtPopul =$this->idbd->query("SELECT *FROM articles WHERE art_nb_vues > 0 LIMIT 0,04");
@@ -141,7 +147,7 @@ class Accueil
     // **********************************
     public function setSondageMois($sondage,$nBtnRadio){
         
-        $requete = "UPDATE reponse SET nombre_click='".$sondage."' WHERE nombre_click=3";
+        $requete = "UPDATE reponse SET nombre_click='".$sondage."' WHERE nombre_click='".$nBtnRadio."'";
         $nb = $this->getBD()->exec($requete);
                                                                                                                                                                      
 

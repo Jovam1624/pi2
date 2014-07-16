@@ -10,5 +10,7 @@
 	// Définit les paramètres pour l'accès à la base de données
 	define("HOST","localhost");
 	define("USER","e1395254");
+	//define("USER","root");
 	define("PASS","jovam");
+	//define("PASS","");
 ?>
