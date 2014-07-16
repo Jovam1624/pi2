@@ -17,6 +17,25 @@
 	margin:0 auto;
 	padding-top: 50px;
 }
-.login {
-	text-align: center;
+
+.object_ok  /* les message d'erreur pour la partie ajax*/
+{
+border: 0.063em solid green; 
+color: #333333; 
 }
+
+.nbr_error
+{
+border: 0.063em solid #AC3962; 
+color: #333333;
+
+}
+#ifexist  {
+  color:red;
+  font-size:0.80em;
+  margin-left:0;
+}
+/*.error{
+	border: 1px solid #FF0000;
+}*/
+

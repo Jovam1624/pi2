@@ -25,5 +25,11 @@
 	{
 		$_GET['catNom'] = 'Non définie';
 	}
+
+	 if(empty($_POST['type']))
+	{
+		$_POST['type'] = "non";
+	}
+
    
 ?>

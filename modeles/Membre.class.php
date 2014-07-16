@@ -10,9 +10,15 @@
 class Membre {
 
     private static $instance = null;
-	private $membre;
+	private $mdp="";
+    private $membre="";
 	private $idbd;
-    private $tabErr="";
+    private $tabErreur=array('nom' => '', 'prenom' => '', 'nom' => '', 'utilisateur' => '', 'mdp' => '', 'courriel' => '',
+                             'adresse'=>'', 'ville'=> '', 'telephone' =>'', 'conflit'=>'');
+    private $loginErreur;
+    private $valid = true;
+    private $tabMeta = array('title' => 'page inscription - journal d\'idées Eureka inventions 2014' , 'keywords' => 'inscriptions - inventions - idées - 2014', 
+                            'description' => 'pages inscriptions - plate-forme pour partager, financer, publier et commenter de nouvelles inventions brefetées ou non - inventions en 2014');
     
 
 	public function __construct($base, $param) {
@@ -33,6 +39,13 @@ class Membre {
 		return $this->idbd;
 	}
 
+    public function getValid(){
+        return $this->valid;
+    }
+    public function getMeta(){
+        return $this->tabMeta;
+    }
+
     public static function getInstance($base, $param)  {
         if (is_null(self::$instance)) {
             self::$instance = new Membre($base, $param);
@@ -40,90 +53,58 @@ class Membre {
         return self::$instance;
     }
 	//****************************************
-	public function getMembreByAlias($alias){
+	public function verifyUtilisateur($alias){
 			
-		$req = $this->getIdbd()->query("SELECT * from membre WHERE membre_alias='".$alias."'");
+		$req =  $this->getIdbd()->query("SELECT * FROM membres WHERE
+                    (membre_alias = '".$_POST['utilisateur']."') AND (membre_mdp ='".$_POST['mdp']."')");
 
 		if(!$req) {
             // lancer l'exception
             throw new Exception("La requête n'a pu être exécutée");
 
         } else {
-          	 while ($membre = $req->fetch(PDO::FETCH_ASSOC)) {
-                       $this->membre = $membre;
-                    }
+            if ($req->rowCount() == 1) {
+                $this->membre = self::test_input($alias);
+                $mdp = $req->fetch(PDO::FETCH_ASSOC);
+                $this->mdp =  self::test_input($mdp['membre_mdp']);
+                self::connectMembre($_POST["utilisateur"]);
+               
+            } else {
+                $this->loginErreur = "Votre nom d'utilisateur ou votre mot de passe est incorrect";
                 }
-            // le retour de la fonction
-			return $this->membre; 
+          	                      
+            }
     }
-	//****************************************
-    public function getMembreById($id){
-			
-		$req = $this->getIdbd()->query("SELECT * from membre WHERE membre_ID='".$id."'");
+	
+    public function connectMembre(){
 
-		if(!$req) {
-            // lancer l'exception
-            throw new Exception("La requête n'a pu être exécutée");
+        //appelle une fonction pour verifier si payant ou non 
+        $_SESSION['utilisateur'] = $this->membre;
+        $_SESSION['paiement'] = $this->mdp;
+        $_SESSION['isConnected'] = true;
+        
+    }   
+    
 
-        } else {
-          	 while ($membre = $req->fetch(PDO::FETCH_ASSOC)) {
-                       $this->membre = $membre;
-                    }
-                }
-            // le retour de la fonction
-			return $this->membre; 
-    }
-	//****************************************
-    public function verifyMembre(){
-        if(isset($_POST['utilisateur']) && isset($_POST['mdp'])){
-                
-        	$req =  $this->getIdbd()->query("SELECT * FROM membres WHERE
-        			(membre_alias = '".$_POST['utilisateur']."') AND (membre_mdp ='".$_POST['mdp']."')");
-
-            if(!$req) {
-            // lancer l'exception
-            throw new Exception("La requête n'a pu être exécutée");
-
-        } else { 
-                while ($verif = $req->fetch(PDO::FETCH_ASSOC)) {
-                $_SESSION['utilisateur'] = $_POST['utilisateur'];
-                $_SESSION['mdp'] = $_POST['mdp'];
-                $_SESSION['isConnected'] = true;
-                }
-            }   
-        }   
-
-		
-
-    }
-
-    public function afficheErreur(){
+    public function verifyErreurLogin(){
 
         if(isset($_POST['connecter'])){
 
             if (empty($_POST["utilisateur"])) {
-                $this->tabErr[0] = "Le nom est requis";
-                } else {
-                   $utilisateur = self::test_input($_POST["utilisateur"]);
-                   
-                    if (!preg_match("/[A-ZÉa-z0-9éçêèô]{5}[A-ZÉa-z0-9éçêèô]+/",$utilisateur)) {
-                        $this->tabErr[0] = "Mauvais nom"; 
+                $this->loginErreur = "Le champ utilisateur est vide";
+                } else if (empty($_POST["mdp"])) {
+                $this->loginErreur = "Le mot de passe est vide";
+                    } else {
+                        self::verifyUtilisateur($_POST['utilisateur']);
+                        
                         }
-                 }       
-            
-            if (empty($_POST["mdp"])) {
-                $this->tabErr[1] = "Le mot de passe est vide";
-                } else {
-                    $mdp = self::test_input($_POST["mdp"]);
-                    if (!preg_match("/[A-ZÉa-z0-9_éçêèô]{7}+/",$mdp)) {
-                        $this->tabErr[1] = "Mauvais mot de passe"; 
-                        }
-                  }
+                  
         }
-        return $this->tabErr;
+        return $this->loginErreur;
     }
 
-    //function qui nettoie l'input 
+    //function qui nettoie l'input des injections SQL et autre caracteres non-permis
+    //source : http://www.w3schools.com/php/php_forms.asp
     public function test_input($data) {
       $data = trim($data);
       $data = stripslashes($data);
@@ -131,10 +112,160 @@ class Membre {
       return $data;
     }
 
+    //fonction qui ajoute des membres inscrits dans la base de donneée
+
+	//verifie si lusager existe!!
+
+    public function AjoutMembre(){
+
+        if(isset($_POST['inscription'])){
+            $req = $this->getIdbd()->exec("INSERT INTO membres VALUES ('','".$_POST['nom']."','".$_POST['prenom']."',
+                                        '".$_POST['utilisateur']."','".$_POST['mdp']."','".$_POST['courriel']."',
+                                         '".$_POST['adresse']."','".$_POST['ville']."','".$_POST['telephone']."','".$_POST['type']."')"); 
+            if(!$req) {
+            // lancer l'exception
+            throw new Exception("La requête n'a pu être exécutée");
+            }
+            
+        }
+  
+    }
+
+    //fonction qui prepare un tableau d'erreur a afficher dans la vue
+    //inspiration de http://www.w3schools.com/php/php_form_required.asp
+    public function verifyErreurInscription(){
+
+        
+        if(isset($_POST['inscription'])){
 
 
-           	
- 	
+            if (empty($_POST["nom"])) {
+                $this->tabErreur["nom"] = "Le nom est requis";
+                } else {
+                    $nom = self::test_input($_POST["nom"]);
+                    if (!preg_match("/^[A-ZÉ][a-zéçêèô]+$/",$nom)) {
+                        $this->tabErreur["nom"] = "Vous devez respecter le patron"; 
+                        }
+                }  
+
+
+            if (empty($_POST["prenom"])) {
+                $this->tabErreur["prenom"] = "Le prenom est requis";
+                } else {
+                    $prenom = self::test_input($_POST["prenom"]);
+                    if (!preg_match("/^[A-ZÉ][a-zéçêèô]+$/",$prenom)) {
+                        $this->tabErreur["prenom"] = "Vous devez respecter le patron"; 
+                        }
+                 }
+                      
+            if (empty($_POST["utilisateur"])) {
+                $this->tabErreur["utilisateur"] = "Le nom d'utilisateur est requis";
+                } else {
+                    $utilisateur = self::test_input($_POST["utilisateur"]);
+                    if (!preg_match("/^[A-ZÉa-z0-9éçêèô]{5}[A-ZÉa-z0-9éçêèô]+$/",$utilisateur)) {
+                        $this->tabErreur["utilisateur"] = "Vous devez respecter le patron"; 
+                        }
+                 }       
+            
+            if (empty($_POST["mdp"])) {
+                $this->tabErreur['mdp'] = "Le mot de passe est vide";
+                } else {
+                    $mdp = self::test_input($_POST["mdp"]);
+                    if (!preg_match("/^[A-ZÉa-z0-9_éçêèô]{6}+/",$mdp)) {
+                        $this->tabErr["mdp"] = "Vous devez respecter le patron"; 
+                        }
+                  }
+
+            if (empty($_POST["courriel"])) {
+                $this->tabErreur["courriel"] = "Le courriel est requis";
+                } else {
+                    $courriel = self::test_input($_POST["courriel"]);
+                    if (!preg_match("/^([\w\-]+\@[\w\-]+\.[\w\-]+)$/",$courriel)) {
+                        $this->tabErreur["courriel"] = "Vous devez respecter le patron"; 
+                        }
+                 }   
+
+
+            $adresse = self::test_input($_POST["adresse"]);
+            if (!preg_match("/^[0-9]+ [A-Za-zéçêèô]+ [A-Za-zéçêèô]+$/",$adresse)) {
+                $this->tabErreur["adresse"] = "Vous devez respecter le patron"; 
+                    }
+                
+
+
+            $ville = self::test_input($_POST["ville"]);
+            if (!preg_match("/^[A-Za-zéçêèô][a-z- ]+$/",$ville)) {
+                $this->tabErreur["ville"] = "Vous devez respecter le patron"; 
+                    }
+            
+
+            $telephone = self::test_input($_POST["telephone"]);
+            if (!preg_match("/^[0-9]+[0-9- ]+$/",$telephone)) {
+                $this->tabErreur["telephone"] = "Vous devez respecter le patron"; 
+                    }
+            self::dejaInscritMembre();        
+
+        }
+        return $this->tabErreur;
+    }
+     
+    public function dejaInscritMembre($alias){
+
+        $req1 =  $this->getIdbd()->query("SELECT membre_alias FROM membres WHERE
+                    (membre_alias = '".$alias."')");
+
+        if(!$req1) {
+            // lancer l'exception
+            throw new Exception("La requête n'a pu être exécutée");
+            } else {
+
+                if ($req1->rowCount() == 1) {
+                    //$this->tabErreur["conflit"] = "Ce nom d'utilisateur est déjà utilisé";
+                    echo "ok";
+
+                }else  {
+                    //$this->tabErreur["conflit"] = ""; 
+                    echo "non";
+
+                }
+
+            }
+            return;
+         
+        }
+      public function dejaInscritCourriel($email){
+
+               
+        $req2 =  $this->getIdbd()->query("SELECT membre_courriel FROM membres WHERE
+                    (membre_courriel = '".$email."')");
+
+        if(!$req2) {
+            // lancer l'exception
+            throw new Exception("La requête n'a pu être exécutée");
+            } else {
+                if ($req2->rowCount() == 1) {
+                    //$this->tabErreur["conflit"] = "Ce nom d'utilisateur est déjà utilisé";
+                    echo "true";
+
+                }else  {
+                    //$this->tabErreur["conflit"] = ""; 
+                    echo "false";
+
+                }
+            }    
+        return;    
+    }
+
+     
+    public function validFormulaire(){
+        foreach ($this->tabErreur as $key => $value) {
+            if ($value != ""){
+                //var_dump($value);
+                $this->valid=false;
+            }
+        }
+        return $this->valid;
+    }
 
 }	
 

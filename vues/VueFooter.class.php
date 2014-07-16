@@ -48,6 +48,9 @@ class VueFooter {
      <!-- <script src="js/sondage.js"></script>-->
      <script src="js/statistiques.js"></script>
      <script src="js/like.js"></script>
+     <script src="js/inscription.js"></script>
+    <!-- <script src="js/verif-user.js"></script>-->
+    <!-- <script src="js/admin.js"></script> -->
      <script src="js/scrollTop.js"></script>
 	 <script src="js/sondage-mois.js"></script>
 	 <script src="js/commentaire.js"></script>

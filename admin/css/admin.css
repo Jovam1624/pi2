@@ -1,0 +1,19 @@
+html , body{
+	background-color:#EEEEEE;
+}
+.form-horizontal{
+	width:40%;
+	margin:0 auto;
+	margin-top:200px;
+	padding:10px;
+	border-radius:5px;
+	background-color:#D3DCE3;
+	border:solid 1px #CCCCCC;
+}
+h4{
+	font-weight:600;
+	color:#111111;
+}
+.icones-sondage-admin > .glyphicon-search{
+	padding:2px;
+}

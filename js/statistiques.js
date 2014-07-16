@@ -15,7 +15,11 @@ $(function() {
   $(".comment").append('<span class="inc "><span class="glyphicon glyphicon-comment"></span></span>');
   
   // Met tous les "like" dans une variable
-  var recompense = $(".like").val();
+  var recompense = $(".like").each(function( index ) {
+  
+    recompense = parseFloat($( this ).val());
+    
+  });
   
         // Le switch qui va attribuer une médaille selon le like
         // Pas actif à 100% dans la version beta
@@ -23,22 +27,22 @@ $(function() {
 
         	case 0:
             	recompense < 50;
-             	$(".star").append('<span class="inc "><img src="./img/medaille-bronze.png" alt="medaille bronze">');
+             	$(".medaille").append('<span class="inc "><img src="./img/accueil/medaille-bronze.png" alt="medaille bronze">');
               	console.log('bronze');
 			  	break;
           	case 1:
               	recompense > 50;
-                $(".star").append('<span class="inc "><img src="./img/medaille-or.png" alt="medaille or">');
+                $(".medaille").append('<span class="inc "><img src="./img/accueil/medaille-or.png" alt="medaille or">');
               	console.log('or');
 			  	break;
           	case 2:
              	recompense > 100;
-              	$(".star").append('<span class="inc "><img src="./img/medaille-diamon.png" alt="medaille diamon">');
+              	$(".medaille").append('<span class="inc "><img src="./img/accueil/medaille-diamon.png" alt="medaille diamon">');
               	break;
-
+                console.log('diamon');
           	default:
-              	$(".star").append('<span class="inc "><img src="./img/aucune-medaille.png" alt="aucune medaille">');
-         
+              	$(".medaille").append('<span class="inc "><img src="./img/accueil/aucune-medaille.png" alt="aucune medaille">');
+              //console.log('aucune');
       } 
     
   	// Quand on clicke sur thumbs-up (le like)
