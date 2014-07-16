@@ -10,7 +10,8 @@
 // Afficher le Header de chaque page
 class VueHeader {
 	
-	public function AfficheEntete()	{
+	public function AfficheEntete($tabMeta)	{
+
 	?>
 	<!DOCTYPE html>
 	<html lang="fr">
@@ -21,8 +22,11 @@ class VueHeader {
       <!--[if ie]>
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       -->
+
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>Journal Eureka</title>
+      <meta name="description" content=<?="'".$tabMeta["description"]."'";?>>
+      <meta name="keywords" content=<?="'".$tabMeta["keywords"]."'";?>>
+      <title><?= $tabMeta["title"];?></title>
       <link href="./css/bootstrap.min.css" rel="stylesheet">
       <link href="./css/recherche.css" rel="stylesheet">
       <link href="./css/contact.css" rel="stylesheet">

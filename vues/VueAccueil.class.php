@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @class VueContact
  * ***************
@@ -22,28 +23,42 @@ class VueAccueil {
 	 * @access public
 	 * 
 	 */
-	public function afficheAccueil($monarticle,$monArtPopulaire,$nbrIdees,$nbrClick,$plusLu, $plusPartage, $plusCommente) {
+	public function afficheAccueil($monarticle,$monArtPopulaire,$nbrIdees,$nbrClick,$plusLu, $plusPartage, $plusCommente,$sondageMois) {
 	//$this->_vueHeader->AfficheEntete();
 	
 		?>
+		 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+               
+               <div class="carousel-inner hidden-xs">
+                  <div class="item active">
+                     <video autoplay="true">
+                <source src="./video/eurekaApps.mp4" type="video/mp4">
+                Cet Navigateur ne support pas ce video.
+            </video>
+                  </div>
+                  
+               </div> 
+            
+        </div>
 		<!-- debut de l'ensemble des articles (id&eacute;es) -->
 		<article class="enssemble-articles">
   	 	  <article class="col-xs-12 col-md-8">
      	    <?php
        		  // cette boucle va afficher les articles (id&eacute;es).
      	    	
-	 	      for ($i = 0;$i < 6; $i++) {
+	 	      for ($i = 0;$i < 8; $i++) {
             ?>
+            
       	  	<article class="col-xs-12 col-sm-6 col-md-6 idee">
          	<!-- le thumbnail -->
-         	  <section class="thumbnail">
-                <a href=<?php echo "index.php?p=articles&id=".$monarticle[$i]['article_ID'];?>><img src=<?php echo "./img/articles/".$monarticle[$i]["article_image"]?> alt="image application"></a>
+         	  <div class="thumbnail">
+                <img src=<?php echo "./img/articles/".$monarticle[$i]["article_image"]?> alt="image application">
             	  <div class="caption">
-               		<h4><a href=<?php echo "index.php?p=articles&id=".$monarticle[$i]['article_ID'];?>><?php echo ($monarticle[$i]["article_titre"]);?></h4>
-               		<a href=<?php echo "index.php?p=articles&id=".$monarticle[$i]['article_ID'];?>>
+               		<h4><?php echo ($monarticle[$i]["article_titre"]);?></h4>
+               		
                   	  <!-- contenu du thumbnails -->
                   	  <p><?php echo Coupechaine::coupeChaineArticle($monarticle[$i]["article_contenu"]); ?></p>
-               		</a>
+               		
                	  	<!-- les icones du thumbnails -->
                		<div class="thumbs-up btnThumbs">
                			<input type="hidden" name="nArticle" value=<?php echo $monarticle[$i]["article_ID"]; ?>>
@@ -55,57 +70,60 @@ class VueAccueil {
                		<div class="comment btnThumbs">
                   	  <input type="text" name="statistiques" value="3" disabled>
                		</div>
+               		 <div class="medaille btnThumbs">
+                    </div>
                		<!-- bouton lire la suite -->
-               		<a href=<?php echo "index.php?p=articles&id=".$monarticle[$i]['article_ID'];?> class="btn btn-default consultez" role="button">Consultez
+               		<a href=<?php echo "index.php?p=articles&id=".$monarticle[$i]['article_ID'];?> rel="popup_name" class="btn btn-default consultez" role="button">Consultez
                		</a>
+
            		 </div>
-        	  </section>
+
+        	  </div>
+
     		</article>
       		<?php
        		  }
          
        		  ?>
+
+
+
   		  </article>
    		  <!-- col-xs-12  -->
+<div id="popup_name" class="le_pop_up">
+	<h2>Connexion</h2>
+	<p>Veuillez vous connecter</p>
+</div>
 		</article>
 		<aside>
-		   <!-- debut aside 
 		   <aside class="col-md-4 visible-md visible-lg">
-		      <ul class="list-group">
-		         <li class="list-group-item active">STATISTIQUES ACTUELLES</li>
-		         <li class="list-group-item">
-		            <span class="badge"><?php echo $nbrIdees; ?></span>
-		            Nombre d'inventions
-		         </li>
-		         <li class="list-group-item">
-		            <span class="badge"><?php echo $nbrIdees; ?></span>       
-		            Nombre d'inventeurs
-		         </li>
-		         <li class="list-group-item"> 
-		            <span class="badge">2</span>
-		            Nombre de bailleurs de fonds
-		         </li>
-		      </ul>
-		   </aside> -->
-		    <aside class="col-md-4 visible-md visible-lg">
 		     <div class="panel panel-default">
 		        <div class="panel-heading">
 		           <h3 class="panel-title">SONDAGE DU MOIS</h3>
 		        </div>
 		        <div class="panel-body sondage">
 		           <form action="#" class="form">
+
 		              <p>
 		                 Que pensez vous de l'invention des arbres lumineux ?
 		              </p>
-		              <input type="radio" name="sondage" class="sondage" id="btn1" value="1" checked="checked"> 
-		              <label for="btn1">&nbsp;Excellente invention</label>
-		              <input type="radio" name="sondage" class="sondage"id="btn2" value="2">
-		              <label for="btn2">&nbsp;Bonne invention</label>
-		              <input type="radio" name="sondage" class="sondage" id="btn3" value="3">
-		              <label for="btn3">&nbsp;Tr&egrave;s mauvaise invention</label>
+		              <?php
+       		 
+	 	      			for ($i = 0;$i < 3; $i++) {
+            		  ?>
+		              <input type="radio" name="sondage" class="ChoixSondage" id="btn"<?php echo $sondageMois[$i]["reponse_ID"]; ?> value=<?php echo $sondageMois[$i]["nombre_click"]; ?> checked="checked"> 
+		              <label for="btn1"><?php echo $sondageMois[$i]["nom_reponse"]; ?></label>
+		              <?php		           
+
+             		}
+         
+		            ?>
 		              <input class="btn btn-default" type="button" name="sondage" class="sondage" id="sondage-mois" value="Valider">
+		           
 		           </form>
+		           <span id="spinner"></span>
 		           <div class="graphe">
+		           	
 				    <?php
 		           
              		for ($i = 0;$i < 3; $i++) {
@@ -124,7 +142,7 @@ class VueAccueil {
 		     </div>
 		    
 		  </aside>
-		   <!-- file actualit&eacute; -->
+	       <!-- file actualit&eacute; -->
 		    <aside class="col-md-4 visible-md visible-lg"> <!-- ****** Modifications por le Fil d'actualit&eacute; par Vanessa ****** -->
 		      <div class="panel-group" id="accordion">
 		         <div class="panel">
@@ -139,7 +157,11 @@ class VueAccueil {
 		                    <?php 
 							foreach ($plusLu as $cle=> $article){ //Pour chaque article qu'il trove dans la categorie de plusLu
 							?>
-                             <li><a href=<?php echo "index.php?p=articles&id=".$article['article_ID']?>><?php echo $article['article_titre']?></a><p><small> publi&eacute; le <?php echo $article['art_date_soumis']?></small><p/></li>
+                             <li>
+                                <a href=<?php echo "index.php?p=articles&id=".$article['article_ID']?>><img class="images col-xs-3" src=<?php echo "./img/articles/".$article["article_image"]?> alt="image" height="60"></a>
+                                <a class="titre col-xs-9" href=<?php echo "index.php?p=articles&id=".$article['article_ID']?>><?php echo $article['article_titre']?></a>
+                                <p  class="datePublie col-xs-10 col-xs-offset-3"> publi&eacute; le <?php echo $article['art_date_soumis']?><p/>
+                             </li>
                              <?php
 							}
 							 ?>
@@ -159,7 +181,11 @@ class VueAccueil {
 		                     <?php 
 							foreach ($plusPartage as $cle=> $article){//Pour chaque article qu'il trove dans la categorie de plusPartage
 							?>
-                             <li><a href=<?php echo "index.php?p=articles&id=".$article['article_ID']?>><?php echo $article['article_titre']?></a><p><small> publi&eacute; le <?php echo $article['art_date_soumis']?></small><p/></li>
+                             <li>
+                                <a href=<?php echo "index.php?p=articles&id=".$article['article_ID']?>><img class="images col-xs-3" src=<?php echo "./img/articles/".$article["article_image"]?> alt="image" height="60"></a>
+                                <a class="titre col-xs-9" href=<?php echo "index.php?p=articles&id=".$article['article_ID']?>><?php echo $article['article_titre']?></a>
+                                <p  class="datePublie col-xs-10 col-xs-offset-3"> publi&eacute; le <?php echo $article['art_date_soumis']?><p/>
+                             </li>
                              <?php
 							}
 							 ?>
@@ -179,7 +205,11 @@ class VueAccueil {
 		                     <?php 
 							foreach ($plusCommente as $cle=> $article){  //Pour chaque article qu'il trove dans la categorie de plusCommente
 							?>
-                             <li><a href=<?php echo "index.php?p=articles&id=".$article['article_ID']?>><?php echo $article['article_titre']?></a><p><small> publi&eacute; le <?php echo $article['art_date_soumis']?></small><p/></li>
+                             <li>
+                                <a href=<?php echo "index.php?p=articles&id=".$article['article_ID']?>><img class="images col-xs-3" src=<?php echo "./img/articles/".$article["article_image"]?> alt="image" height="60"></a>
+                                <a class="titre col-xs-9" href=<?php echo "index.php?p=articles&id=".$article['article_ID']?>><?php echo $article['article_titre']?></a>
+                                <p  class="datePublie col-xs-10 col-xs-offset-3"> publi&eacute; le <?php echo $article['art_date_soumis']?><p/>
+                             </li>
                              <?php
 							}
 							 ?>
@@ -189,37 +219,64 @@ class VueAccueil {
 		         </div>
      		 </div>  
    		  </aside>
-		  <!-- articles populaires -->
-		  <aside class="col-md-4 visible-md visible-lg">
+            <!-- articles populaires -->
+		 
+          <aside class="col-md-4 visible-md visible-lg">
 		      <div class="panel panel-default">
 		         <div class="panel-heading">
-		            <h3 class="panel-title">ARTICLES LES PLUS POPULAIRES</h3>
+		            <h3 class="panel-title">RESEAUX SOCIAUX</h3>
 		         </div>
 		         <div class="panel-body">
-		            <?php
-		            // cette boucle va afficher les articles (id&eacute;es).
-
-             		for ($i = 0;$i < 4; $i++) {
-         
-		            ?>
-		            <div class="media">
-		               <a class="pull-left" href="#">
-		               <img class="media-object" src=<?php echo "./img/articles/".$monArtPopulaire[$i]["article_image"]?> alt="image 1" width="80" height="60">
-		               </a>
-		               <div class="media-body">
-		                  <h5 class="media-heading"><?php echo $monArtPopulaire[$i]['article_titre']; ?></h5>
-		                  <?php echo Coupechaine::coupeChaineTitrePopul($monArtPopulaire[$i]['article_contenu']); ?> 
-		                  <a href="#" class="btn-default" role="button"> <span class="glyphicon glyphicon-comment"></span> 15</a> 
-		               </div>
-				    </div>
-		            <?php
-		               
-		               }
-		            
-		            ?>
+		            <div class="fb-like col-lg-4 col-md-4" data-href="https://www.facebook.com/pages/Journal-Eureka/1435830350024137" data-width="159" data-layout="button_count" data-action="like" data-share="false"></div>    <!-- div partager par FACEBOOK-->
+            <script>
+                (function(d, s, id) {
+                  var js, fjs = d.getElementsByTagName(s)[0];
+                  if (d.getElementById(id)) return;
+                  js = d.createElement(s); js.id = id;
+                  js.src = "//connect.facebook.net/fr_CA/sdk.js#xfbml=1&version=v2.0";
+                  fjs.parentNode.insertBefore(js, fjs);
+                }(document, 'script', 'facebook-jssdk'));
+            </script>
+        
+                <div class="twitter-share-button col-lg-6 col-md-6"> <!-- div partager par TWITTER-->
+                    <a href="https://twitter.com/Eureka_Journal" class="twitter-follow-button" data-show-count="false" data-lang="fr">Suivre @JournalEureka</a>
+                    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+                </div>
+                <div class="col-lg-2 col-md-2">  <!-- div partager par courriel-->
+                    <a href="mailto:jovam1624@gmail.com" class="btn btn-default btn-xs" role="button">
+                    <span class="glyphicon glyphicon-envelope"></span></a>
+                </div>
+                <div class="fb-like-box" data-href="https://www.facebook.com/pages/Journal-Eureka/1435830350024137" data-colorscheme="light" data-show-faces="true" data-header="true" data-stream="false" data-show-border="false"></div>
+                </div>     
+                    
+                
        			  </div>
    			   </div>
   		  </aside>
+            
+            
+            
+            
+            
+		  
+  		   <!-- debut aside  -->
+		   <aside class="col-md-4 visible-md visible-lg">
+		       <!--<ul class="list-group">
+		         <li class="list-group-item active">STATISTIQUES ACTUELLES</li>
+		         <li class="list-group-item">
+		            <span class="badge"><?php echo $nbrIdees; ?></span>
+		            Nombre d'inventions
+		         </li>
+		         <li class="list-group-item">
+		            <span class="badge"><?php echo $nbrIdees; ?></span>       
+		            Nombre d'inventeurs
+		         </li>
+		         <li class="list-group-item"> 
+		            <span class="badge">2</span>
+		            Nombre de bailleurs de fonds
+		         </li>
+		      </ul>
+		   </aside>-->
 		  <!-- sondage -->
 		 
 	   </aside>

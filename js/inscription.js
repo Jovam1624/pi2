@@ -1,4 +1,3 @@
-
 // Bloc qui fait la verification des formulaires 
 // Pas encore actif dans la version beta
 
@@ -72,7 +71,7 @@ function valideFrom(){
  window.addEventListener("load", function(){
              
             var alias = document.getElementById("alias"); 
-            //var courriel = document.getElementById("email"); 
+            var courriel = document.getElementById("email"); 
              //alias.addEventListener("click", testUser, true);
             //console.log(courriel);
 
@@ -131,10 +130,10 @@ function valideFrom(){
  
            var verifEmail = {
  
-        pile: 0,
-         verif: function () {
-          this.pile--;
-          if (this.pile == 0) {
+             pile: 0,
+             verifEmail: function () {
+              this.pile--;
+             if (this.pile == 0) {
  
              // l'envoi de la variable numéro du dossier
               $.ajax({
@@ -182,28 +181,25 @@ function valideFrom(){
 		 
          // fonction qui controle si l'utilisateur est entrain d'ecrire
          $(function () {
-         
-         $('#alias').keyup(function (e) {
-         verif.pile++; 
-         
-         window.setTimeout('verif.verif()', 500); // chaque 1/5 une requette va etre envoyer
-         
-         
-         })
-		 
-		  $(function () {
-         
-         $('#email').keyup(function (e) {
-         verif.pile++; 
-         
-         window.setTimeout('verif.verif()', 500); // chaque 1/5 une requette va etre envoyer
-         
-         
-         })
-
-      
 
          
-         });
+             $('#alias').keyup(function (e) {
+             verif.pile++; 
+             
+             window.setTimeout('verif.verif()', 500); // chaque 1/5 une requette va etre envoyer
+             
+             
+             })
+    		 
+    		
+             
+             $('#email').keyup(function (e) {
+             verifEmail.pile++; 
+             
+             window.setTimeout('verifEmail.verifEmail()', 500); // chaque 1/5 une requette va etre envoyer
+             
+             
+             })
+        });
 
 

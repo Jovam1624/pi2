@@ -17,6 +17,8 @@ class Membre {
                              'adresse'=>'', 'ville'=> '', 'telephone' =>'', 'conflit'=>'');
     private $loginErreur;
     private $valid = true;
+    private $tabMeta = array('title' => 'page inscription - journal d\'idées Eureka inventions 2014' , 'keywords' => 'inscriptions - inventions - idées - 2014', 
+                            'description' => 'pages inscriptions - plate-forme pour partager, financer, publier et commenter de nouvelles inventions brefetées ou non - inventions en 2014');
     
 
 	public function __construct($base, $param) {
@@ -39,6 +41,9 @@ class Membre {
 
     public function getValid(){
         return $this->valid;
+    }
+    public function getMeta(){
+        return $this->tabMeta;
     }
 
     public static function getInstance($base, $param)  {
@@ -73,9 +78,9 @@ class Membre {
 	
     public function connectMembre(){
 
-        
+        //appelle une fonction pour verifier si payant ou non 
         $_SESSION['utilisateur'] = $this->membre;
-        $_SESSION['mdp'] = $this->mdp;
+        $_SESSION['paiement'] = $this->mdp;
         $_SESSION['isConnected'] = true;
         
     }   
@@ -216,11 +221,11 @@ class Membre {
 
                 if ($req1->rowCount() == 1) {
                     //$this->tabErreur["conflit"] = "Ce nom d'utilisateur est déjà utilisé";
-                    echo "true";
+                    echo "ok";
 
                 }else  {
                     //$this->tabErreur["conflit"] = ""; 
-                    echo "false";
+                    echo "non";
 
                 }
 
@@ -239,10 +244,16 @@ class Membre {
             throw new Exception("La requête n'a pu être exécutée");
             } else {
                 if ($req2->rowCount() == 1) {
-                    $this->tabErreur["conflit"] = "Ce courriel est déjà inscrit";
+                    //$this->tabErreur["conflit"] = "Ce nom d'utilisateur est déjà utilisé";
+                    echo "true";
 
-                }else  $this->tabErreur["conflit"] = "";
-            }   
+                }else  {
+                    //$this->tabErreur["conflit"] = ""; 
+                    echo "false";
+
+                }
+            }    
+        return;    
     }
 
      

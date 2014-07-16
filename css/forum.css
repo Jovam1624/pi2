@@ -121,3 +121,14 @@ ul.meta-post li a{
 	font-size:12px;
 	font-weight:600;
 }
+.msg-confirmation{
+
+	background-color:#EBF8A4;
+	border:solid 1px #A2D246;
+	border-radius:2px;
+}
+.form-comment{
+
+	width:60%;
+}
+

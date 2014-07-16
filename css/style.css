@@ -6,7 +6,7 @@ html /* La police d'écriture pour tous le site*/
 body /* background pour le body*/
 { 
 	
-	background-image:url(../img/bg-body.png);
+	background-image:url(../img/accueil/bg-body.png);
 }
 body > .container-globale /* container-globale du document */
 { 
@@ -15,7 +15,7 @@ body > .container-globale /* container-globale du document */
 	padding-left:0;
 	padding-right:0;
 	padding-top:10px;
-	background-image:url(../img/bg-contenu.png);
+	background-image:url(../img/accueil/bg-contenu.png);
 }
 
 #retour{
@@ -37,6 +37,11 @@ body > .container-globale /* container-globale du document */
 .inscription  > button:first-of-type(1){
 
 	background-color:#075E41;
+}
+.erreur {
+
+    color: red;
+
 }
 .reseaux-sociaux{
 	float:left;
@@ -160,6 +165,12 @@ figure > span{
 	color:#ffffff;
 	
 }
+.carousel-inner
+{
+    margin-bottom: 20px;
+    
+}
+
 .enssemble-articles , .col-xs-12 /* enleve le padding par defaut*/
 { 
 	padding:0;
@@ -287,6 +298,25 @@ aside > ul > .active
 	padding: 10px 20px; 
 	font-weight:600;
 }
+aside .images /* style pour l'aside fil d'actualité pour les images*/
+{ 
+    padding-left: 0px;
+    padding-right: 0px;
+}
+aside .titre /* style pour l'aside fil d'actualité pour les titres sur chaque article*/
+{ 
+    padding-left: 10px;
+    padding-right: 0px;
+}
+aside .datePublie /* style pour l'aside fil d'actualité pour la date de publication de chaque article*/
+{ 
+    margin-top: -20px;
+    padding-left: 10px;
+    padding-right: 0px;
+}
+aside .fb-like-box{  /* style pour l'aside like-box du facebook pour que soit separé */
+    padding-top: 10px;
+}
 footer{ /* le footer */
 	
 	background-color:#000000;
@@ -341,7 +371,15 @@ footer > .btn /* bouton de l'ancran nomée dans le footer*/
 .glyphicon-chevron-up{
 	color:#ffffff;
 }
-
+.form > label
+{
+	margin-left:5%;
+	margin-bottom:3%;
+}
+.form > label:nth-of-type(3)
+{
+	margin-bottom:5%;
+}
 summary > h6 /* partie copyright*/
 { 
 	color:#6B6E7A;
@@ -359,4 +397,52 @@ summary > h6 /* partie copyright*/
 	color: white;
 	border-color: black;
 }
+.sondage
+{
+    z-index: 1;
+}
+#spinner
+{
+	position:relative;
+	display: block;
+	top: 50px;
+	left:40%;
 
+
+}
+
+#fade { 
+	display: none; 
+	background: #000;
+	position: fixed; left: 0; top: 0;
+	width: 100%; height: 100%;
+	opacity: .80;
+	z-index: 9999;
+}
+.le_pop_up{
+	display: none; 
+	background: #fff;
+	padding: 20px;
+	border: 1px solid #ddd;
+	float: left;
+	font-size: 1.2em;
+	position: fixed;
+	top: 50%; left: 50%;
+	z-index: 99999;
+	
+	-webkit-box-shadow: 0px 0px 20px #000;
+	-moz-box-shadow: 0px 0px 20px #000;
+	box-shadow: 0px 0px 20px #000;
+	
+}
+img.btn_close 
+{
+	float: right;
+	margin: -55px -55px 0 0;
+}
+*html #fade {
+position: absolute;
+}
+*html .popup_block {
+position: absolute;
+}

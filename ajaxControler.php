@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 /**
  * Controlleur AJAX. Ce fichier est la porte d'entrée des requêtes AJAX (XHR)
  * @author Jonathan Martel
@@ -11,25 +11,37 @@
  */
 
 	require_once("./config.php");	
-	//include('mon_debugger.php');
-	//include_once('./modeles/Modele.class.php');
-
-	  // partie accueil 
+		$_SESSION['like'] = 0;
+	  // nombre likes 
 	   if(isSet($_POST['like']) 
-		   	&& isSet($_POST['numeroArticle']) 
-		   	&& isSet($_POST['nArticle']) 
-		   	&& isSet($_POST['nbrVues']))
+		   	&& isSet($_POST['numeroArticle']))
 	   {
-
 	   	 $nbrLike = $_POST['like'];
-	     $numeroArticle = $_POST['numeroArticle'];
-		 $nArticle = $_POST['nArticle'];
-	     $nbrVues = $_POST['nbrVues'];
-
+         $numeroArticle = $_POST['numeroArticle'];
+	     $_SESSION['like'] = 1;
 	   	 // instancier l'objet acceuil et invoquer les methode aproprier
 	     $bdd = Accueil::getInstance("e1395254", "dbconnect");
 	     $bdd->setSondage($nbrLike,$numeroArticle);
-		 $bdd->setNbrVues($nbrVues,$nArticle);
+		 
+
+	   }
+	   // nombre vues
+	    if(isSet($_POST['nArticle']) && isSet($_POST['nbrVues']))
+	   {
+	   	 $nArticle = $_POST['nArticle'];
+         $nbrVues = $_POST['nbrVues'];
+
+
+	   	 // instancier l'objet acceuil et invoquer les methode aproprier
+	     $bdd = Accueil::getInstance("e1395254", "dbconnect");
+	     $bdd->setNbrVues($nbrVues,$nArticle);
+
+	   }
+	   if(isSet($_POST['sondage']))
+	   {
+	   		$sondage = $_POST['sondage'];
+	   		$bdd = Accueil::getInstance("e1395254", "dbconnect");
+	        $bdd->setSondageMois($sondage,$nBtnRadio= $sondage-1);
 	   }
 	   // partie forum
 	   if(isSet($_POST['nom']) 
@@ -44,45 +56,24 @@
 		 $bdd2  = Forum::getInstance("e1395254", "dbconnect");
 		 $bdd2->setCommentaire($nom,$courriel,$message);
 
-	   }
-	   // partie inscription
-	   if(isSet($_POST['alias'])){
-	   	 $alias = $_POST['alias'];
-	   	 $bdd3  = Membre::getInstance("e1395254", "dbconnect");
-		 $bdd3->dejaInscritMembre($alias);
+		 
+	   // partie inscription pour nom utilisateur
+	   if(isSet($_POST['pseudo'])){
+	   	 $pseudo = $_POST['pseudo'];
+		 $bdd3  = Inscription::getInstance("e1395254", "dbconnect");
+		 $bdd3->getPseudo($pseudo);
 		
 		}
-
-		if(isSet($_POST['email'])){
+	    // fin partie inscription user
+	    // partie inscription pour email
+	   if(isSet($_POST['email'])){
 	   	 $email = $_POST['email'];
-	   	 $bdd3  = Membre::getInstance("e1395254", "dbconnect");
-		 $bdd3->dejaInscritCourriel($courriel);
+		 $bdd  = Inscription::getInstance("e1395254", "dbconnect");
+		 $bdd->getEmail($email);
 		
 		}
-	    // fin partie inscription
+	    // fin partie inscription email
 
-
-		      
-		 // recuper l'adresse mac de la machine
-		 // ob_start pour la temporisation
-	     ob_start();
-		 system("ipconfig /all");
-		 $moncom=ob_get_contents();
-		 ob_clean();
-		 $findme = "physique";
-		 $pmac = strpos($moncom, $findme);
-		 $mac=substr($moncom,($pmac+36),17);
-		 if($mac != 0)
-			{
-			echo 'ok';
-
-
-			}
-			else
-			{
-			//echo "non";
-
-			}
       
    
 ?>

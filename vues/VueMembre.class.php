@@ -41,7 +41,7 @@ class VueMembre {
     <article class="login container">
       <h1>Inscription</h1>
         <div class="sign col-md-4">
-           <form role="form" action="index.php?p=inscription" method="POST">
+           <form role="form" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="POST" target="_top">
               <div class="form-group">
                 <label for="nom">Nom</label>
                 <input type="text" class="form-control valid" name="nom" placeholder="Nom" pattern="[A-Z][a-z]+" required>
@@ -89,10 +89,14 @@ class VueMembre {
                   <input type="checkbox" name="type" value="oui"> Voulez-vous être membre payant? 
                 </label>
               </div>
+             
+                <input type="hidden" name="cmd" value="_s-xclick">
+                <input type="hidden" name="hosted_button_id" value="DQE99JRMGN3DU">
+                <input type="image" src="https://www.sandbox.paypal.com/fr_CA/i/btn/btn_subscribeCC_LG.gif" border="0" name="submit" alt="PayPal - la solution de paiement en ligne la plus simple et la plus sécurisée !">
+                <img alt="" border="0" src="https://www.sandbox.paypal.com/fr_CA/i/scr/pixel.gif" width="1" height="1">
               
-
                <span class="error"><?php echo (isset($tabErr["conflit"])) ? $tabErr["conflit"] : "" ?></span>
-               <button type="submit" name="inscription" class="btn btn-default">S'inscrire</button>
+              <!-- <button type="submit" name="inscription" class="btn btn-default">S'inscrire</button> -->
           </form>    
    </article> 
    <?php         

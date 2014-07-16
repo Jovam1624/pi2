@@ -42,7 +42,7 @@ class VueArticles {
                     </div><!-- fin de la colonne du menu des articles -->
 
                     <!-- - - - - - - - -  Colonne de droite (LISTE DES ARTICLES) -->
-                    <div class="col-sm-10">
+                    <div class="col-sm-9">
                         <div class="panel panel-default">
                             <!-- Boîte de recherche dans l'entête -->
                              

@@ -13,6 +13,8 @@ class Articles {
         private $idbd;
         private $aArticles;
         private $aArticle;
+        private $tabMeta = array('title' => 'page article-journal d\'idées Eureka inventions 2014' , 'keywords' => 'articles,inventions,idées,2014', 
+                            'description' => 'pages articles-plate-forme pour partager, financer, publier et commenter de nouvelles inventions brefetées ou non - inventions en 2014');
       
     //******************************************
 	public function __construct($base, $param) {
@@ -42,6 +44,10 @@ class Articles {
     public function getBD()
     {
         return $this->idbd;
+    }
+    //fonction qui va chercher le tableau de meta et title 
+      public function getMeta(){
+        return $this->tabMeta;
     }
 		
 	/****************************************************
