@@ -5,7 +5,8 @@
              
              var lesLikes = document.getElementsByClassName("glyphicon-thumbs-up"); 
              var lireLaSuite = document.getElementsByClassName("consultez"); 
-			 
+			       var monIp = document.getElementById("ip").value;
+            
             for (var i = 0; i < lesLikes.length; i++) {
                 lesLikes[i].addEventListener("click", envoi, true);
                 

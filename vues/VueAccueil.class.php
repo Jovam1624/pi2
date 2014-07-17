@@ -43,7 +43,7 @@ class VueAccueil {
 		<!-- debut de l'ensemble des articles (id&eacute;es) -->
 		<article class="enssemble-articles">
   	 	  <article class="col-xs-12 col-md-8">
-  	 	  	<input type="hidden" name="ip" id="ip" value=<?php echo $monIp; ?>>
+  	 	  	<input type="hidden" name="ip" id="ip" value=<?php echo $monIp=0; ?>>
      	    <?php
        		  // cette boucle va afficher les articles (id&eacute;es).
      	    	

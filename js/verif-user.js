@@ -2,10 +2,10 @@
 	
 		$(document).ready(function(){    
          
-			$('.consultez').mouseover(function(evt) {
+			$('.consultez').click(function(evt) {
 				
-				$('.modale').addClass( "modaleVisible" );
-				$('#bg-obscure').addClass("bg-obscure").fadeIn('slow',0.5);
+				//$('.modale').addClass( "modaleVisible" );
+				//$('#bg-obscure').addClass("bg-obscure").fadeIn('slow',0.5);
 
 			  
 			});
