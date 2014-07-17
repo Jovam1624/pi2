@@ -23,8 +23,8 @@ class VueAccueil {
 	 * @access public
 	 * 
 	 */
-	public function afficheAccueil($monarticle,$monArtPopulaire,$nbrIdees,$nbrClick,$plusLu, $plusPartage, $plusCommente,$sondageMois) {
-	//$this->_vueHeader->AfficheEntete();
+
+	public function afficheAccueil($monarticle,$monArtPopulaire,$nbrIdees,$nbrClick,$plusLu, $plusPartage, $plusCommente,$sondageMois,$monIp) {
 	
 		?>
 		 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
@@ -32,7 +32,7 @@ class VueAccueil {
                <div class="carousel-inner hidden-xs">
                   <div class="item active">
                      <video autoplay="true">
-                <source src="./video/eurekaApps.mp4" type="video/mp4">
+                <!--<source src="./video/eurekaApps.mp4" type="video/mp4">-->
                 Cet Navigateur ne support pas ce video.
             </video>
                   </div>
@@ -43,6 +43,7 @@ class VueAccueil {
 		<!-- debut de l'ensemble des articles (id&eacute;es) -->
 		<article class="enssemble-articles">
   	 	  <article class="col-xs-12 col-md-8">
+  	 	  	<input type="hidden" name="ip" id="ip" value=<?php echo $monIp=0; ?>>
      	    <?php
        		  // cette boucle va afficher les articles (id&eacute;es).
      	    	
@@ -62,7 +63,7 @@ class VueAccueil {
                	  	<!-- les icones du thumbnails -->
                		<div class="thumbs-up btnThumbs">
                			<input type="hidden" name="nArticle" value=<?php echo $monarticle[$i]["article_ID"]; ?>>
-                  	  <input class='like' type="text" name="statistiques" value=<?php echo $monarticle[$i]["art_nb_likes"]; ?> disabled>
+                  	  <input class='like' id="verifLike" type="text" name="statistiques" value=<?php echo $monarticle[$i]["art_nb_likes"]; ?> disabled>
                		</div>
                		<div class="eye-open btnThumbs">
                   	  <input type="text" name="statistiques" value=<?php echo $monarticle[$i]["art_nb_vues"]; ?> disabled>
@@ -85,15 +86,35 @@ class VueAccueil {
        		  }
          
        		  ?>
+<div id="pop-up-insc" class="pop-up-insc modale">
+  <div class="row-fluid">
+    <div class="offset1 span10">
+      <form>
+        <div class="control-group">
+          <h1>Login:</h1>
+       </div>
+       <div class="control-group">
+       	<h1>Pas encore membre?</h1>
+       </div>
+       <div class="control-group">
+        <a href="index.php?p=connexion" type="button" class="btn btn-default btn-sm btn-clique">Connexion</a>
+          			<a href="index.php?p=inscription" type="button" class="btn btn-default btn-sm btn-clique">Inscription</a> 
+       </div>
+       
+       
+     </form>
+   </div>
+  </div>
+</div>
+		<div id="bg-obscure">
+
+		</div>
 
 
 
   		  </article>
    		  <!-- col-xs-12  -->
-<div id="popup_name" class="le_pop_up">
-	<h2>Connexion</h2>
-	<p>Veuillez vous connecter</p>
-</div>
+
 		</article>
 		<aside>
 		   <aside class="col-md-4 visible-md visible-lg">

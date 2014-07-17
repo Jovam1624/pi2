@@ -39,9 +39,11 @@ session_start();
 	   }
 	   if(isSet($_POST['sondage']))
 	   {
+	   		
 	   		$sondage = $_POST['sondage'];
 	   		$bdd = Accueil::getInstance("e1395254", "dbconnect");
 	        $bdd->setSondageMois($sondage,$nBtnRadio= $sondage-1);
+	        $bdd->getCookieSondageMois();
 	   }
 	   // partie forum
 	   if(isSet($_POST['nom']) 

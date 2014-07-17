@@ -16,6 +16,8 @@ class Accueil
     private $monArtPopulaire;
     private $nbrIdees;
     private  $nbrClick;
+    private  $monIp;
+    //private const cookSondage=1;
     private $tabMeta = array('title' => 'page accueil-journal d\'idées Eureka inventions 2014' , 'keywords' => 'accueil,inventions,idées,2014', 
                             'description' => 'pages accueil-plate-forme pour partager, financer, publier et commenter de nouvelles inventions brefetées ou non - inventions en 2014');
     
@@ -51,7 +53,8 @@ class Accueil
     }
      public function getMeta(){
         return $this->tabMeta;
-    }
+    }    
+    
     // **********************************
     public function getMonarticle()
     {
@@ -59,7 +62,7 @@ class Accueil
     }
     // **********************************
     public function get_article_acceuil(){
-        
+        $this->monIp = $_SERVER['REMOTE_ADDR'];
         $req =$this->idbd->query("SELECT *FROM articles LIMIT 0,08");
 
         if (!$req) {
@@ -148,10 +151,10 @@ class Accueil
     public function setSondageMois($sondage,$nBtnRadio){
         
         $requete = "UPDATE reponse SET nombre_click='".$sondage."' WHERE nombre_click='".$nBtnRadio."'";
-        $nb = $this->getBD()->exec($requete);
-                                                                                                                                                                     
+        $nb = $this->getBD()->exec($requete);                                                                                                                                                                     
 
     } 
+
     // **********************************
     public function getSondageMois(){
         
@@ -172,7 +175,11 @@ class Accueil
         return $this->nbrClick;
                                                                                                                                                                      
     }  
+    public function getIp(){
 
+         return $this->monIp;
+
+    }
     public function get_article_plusLu(){
         $fLu = Array();
         $res = $this->idbd->query("SELECT * FROM articles ORDER BY art_nb_vues DESC LIMIT 0,5");

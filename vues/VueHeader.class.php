@@ -36,6 +36,7 @@ class VueHeader {
       <link href="./css/forum.css" rel="stylesheet">
       <link href="./css/font-awesome.css" rel="stylesheet">  
        <link href="./css/fonts.css" rel="stylesheet" type="text/css" >
+       
  
     </head>
     <body>
@@ -48,12 +49,12 @@ class VueHeader {
 	<header class="header-principal">
       <div class="menu">       
     	<nav class="navbar navbar-default navbar-fixed-top hidden-xs" role="navigation">
-      		<div class="container">
+      		<main>
     		<!--<a class="navbar-brand hidden-xs" href="index.php"><img src="./img/logo.png" alt="logo"/></a>-->
        			<figure><h1>EUREKA</h1>
-       				<span>Journal d'id&eacute;es</span>
+       				<span>Journal d'inventions</span>
        			</figure>	
-     				<div class="inscription col-md-4">
+     				<div class="inscription">
                		<div class="reseaux-sociaux">
                 		 <span class="icon-linkedin"></span>
                  		 <span class="icon-twitter"></span>
@@ -74,7 +75,7 @@ class VueHeader {
        				}
     				?>
   			</div>
-			</div>
+			</main>
 	    </nav>
 	    <nav class="navbar navbar-default" role="navigation">
     	  <div class="container-fluid">
