@@ -17,7 +17,10 @@ body > .container-globale /* container-globale du document */
 	padding-top:10px;
 	background-image:url(../img/accueil/bg-contenu.png);
 }
-
+main{
+	width:82%;
+	margin:0 auto;
+}
 #retour{
 	min-height: 750px;
 }
@@ -106,11 +109,12 @@ figure{
 figure > h1{
 	height: 20px;
 	font-weight:800;
-	margin-left:2%;
+	margin-left:6%;
 }
 figure > span{
-    margin-left: 2%;
-    letter-spacing: 5px;
+    margin-left:6%;
+    line-height:200%;
+    letter-spacing: 2px;
 }
 
 .inscription  > button{
