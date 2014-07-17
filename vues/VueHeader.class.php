@@ -54,7 +54,7 @@ class VueHeader {
        			<figure><h1>EUREKA</h1>
        				<span>Journal d'id&eacute;es</span>
        			</figure>	
-     				<div class="inscription col-md-4">
+     				<div class="inscription">
                		<div class="reseaux-sociaux">
                 		 <span class="icon-linkedin"></span>
                  		 <span class="icon-twitter"></span>

@@ -2,7 +2,7 @@
 	
 		$(document).ready(function(){    
          
-			$('.consultez').click(function(evt) {
+			$('.consultez').mouseover(function(evt) {
 				
 				$('.modale').addClass( "modaleVisible" );
 				$('#bg-obscure').addClass("bg-obscure").fadeIn('slow',0.5);
