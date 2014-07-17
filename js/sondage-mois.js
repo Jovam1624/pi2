@@ -5,8 +5,8 @@
 			$('#sondage-mois').click(function(evt) {
 						
 				var sondage = $('input[type=radio][name=sondage]:checked'); //récuperation des boutons radios
-				
-				
+				var monIp = $('#ip');
+					console.log(monIp.attr('value'));
 
 				    sondage = sondage.attr('value');
 				    

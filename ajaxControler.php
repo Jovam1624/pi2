@@ -43,7 +43,7 @@ session_start();
 	   		$sondage = $_POST['sondage'];
 	   		$bdd = Accueil::getInstance("e1395254", "dbconnect");
 	        $bdd->setSondageMois($sondage,$nBtnRadio= $sondage-1);
-	        $bdd->setCookieSondageMois($cookSondage);
+	        $bdd->getCookieSondageMois();
 	   }
 	   // partie forum
 	   if(isSet($_POST['nom']) 

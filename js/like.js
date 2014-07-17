@@ -11,10 +11,9 @@
                 
             }
             for (var i = 0; i < lireLaSuite.length; i++) {
-                lireLaSuite[i].addEventListener("click", envoiNbrVues, true);
+                lireLaSuite[i].addEventListener("mouseover", envoiNbrVues, true);
                 
             }
-
         });
 
         // Fonction pour envoyer le nombre de vues dans la BD
@@ -41,11 +40,11 @@
 
             });
 
-        }
-        // Fonction pour envoyer le nombre de likes dans la BD
+        }      // Fonction pour envoyer le nombre de likes dans la BD
         function envoi(evt){
             var verifLike = document.getElementById("verifLike");
                 verifLike = verifLike.value;
+                console.log(verifLike);
            	var nbrLike = evt.currentTarget.parentNode.previousSibling.previousSibling;
                 evt.currentTarget.setAttribute("class", "glyphicon glyphicon-thumbs-up thumbs-up-desactive");
            	
