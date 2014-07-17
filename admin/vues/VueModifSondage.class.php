@@ -18,8 +18,8 @@
     private $_vueFooter;
     
     
-    public function afficheModifSondage($id,$nomBtn) {
-    //$this->_vueHeader->AfficheEntete();
+    public function afficheModifSondage($id,$nomBtn,$monSondage) {
+    
     
       ?>
     <!-- enssemble contenu-->
@@ -40,25 +40,25 @@
                 <div class="form-group">
                   <label for="inputId" class="col-sm-2 control-label">Id reponse</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputId" placeholder="">
+                    <input type="text" class="form-control" id="inputId" value=<?php echo $monSondage[0]["reponse_ID"]; ?> disabled>
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="inputReponse" class="col-sm-2 control-label">Reponse</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputReponse" placeholder="">
+                    <input type="text" class="form-control" id="inputReponse" value=<?php echo $monSondage[0]["nom_reponse"]; ?>>
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="inputNombre" class="col-sm-2 control-label">Nombre</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputNombre" placeholder="">
+                    <input type="text" class="form-control" id="inputNombre" value=<?php echo $monSondage[0]["nombre_click"]; ?>>
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="inputQuestion" class="col-sm-2 control-label">Question</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputQuestion" placeholder="">
+                    <input type="text" class="form-control" id="inputQuestion" value=<?php echo $monSondage[0]["question_sondage"]; ?>>
                   </div>
                 </div>
                 <div class="form-group">

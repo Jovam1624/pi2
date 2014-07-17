@@ -12,6 +12,7 @@ class ModifSondage
     
     private static $instance = null;
     private $idbd;
+    private $monSondage;
     
  	   
  	public function __construct($base, $param) {
@@ -42,9 +43,9 @@ class ModifSondage
         return $this->idbd;
     }
      
-    public function getModifSondage(){
+    public function getSondageAdmin(){
         
-        /*$req =$this->idbd->query("SELECT *FROM articles LIMIT 0,06");
+        $req =$this->idbd->query("SELECT *FROM reponse LIMIT 0,03");
 
         if (!$req) {
                   
@@ -52,17 +53,16 @@ class ModifSondage
             
         } else {
                        
-            while ($article = $req->fetch(PDO::FETCH_ASSOC)) {
-                $monArticle[]     = $article;
-                $this->monArticle = $monArticle;
+            while ($sondage = $req->fetch(PDO::FETCH_ASSOC)) {
+                $monSondage[]     = $sondage;
+                $this->monSondage = $monSondage;
             }
             
-        }*/
+        }
        
-       	//return $this->monArticle;
+        return $this->monSondage;
            
     }
-
     
     
 }

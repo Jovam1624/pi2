@@ -88,9 +88,11 @@ class Controleur
     		
 			$bdd = ModifSondage::getInstance("e1395254", "dbconnect");			 
 			$aVue = new VueModifSondage();
+			
 			$id = $_GET['id'];
 			$nomBtn = $_GET['nomBtn'];
-			$aVue->afficheModifSondage($id,$nomBtn);
+			$monSondage = $bdd-> getSondageAdmin();
+			$aVue->afficheModifSondage($id,$nomBtn,$monSondage);
 			
 		}
 		
