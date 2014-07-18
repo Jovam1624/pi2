@@ -36,7 +36,7 @@ class VueHeader {
       <link href="./css/forum.css" rel="stylesheet">
       <link href="./css/font-awesome.css" rel="stylesheet">  
        <link href="./css/fonts.css" rel="stylesheet" type="text/css" >
-        <link href="./css/fonts-load.css" rel="stylesheet" type="text/css" >
+       
  
     </head>
     <body>

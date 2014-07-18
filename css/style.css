@@ -411,38 +411,3 @@ summary > h6 /* partie copyright*/
 
 }
 
-#fade { 
-	display: none; 
-	background: #000;
-	position: fixed; left: 0; top: 0;
-	width: 100%; height: 100%;
-	opacity: .80;
-	z-index: 9999;
-}
-.le_pop_up{
-	display: none; 
-	background: #fff;
-	padding: 20px;
-	border: 1px solid #ddd;
-	float: left;
-	font-size: 1.2em;
-	position: fixed;
-	top: 50%; left: 50%;
-	z-index: 99999;
-	
-	-webkit-box-shadow: 0px 0px 20px #000;
-	-moz-box-shadow: 0px 0px 20px #000;
-	box-shadow: 0px 0px 20px #000;
-	
-}
-img.btn_close 
-{
-	float: right;
-	margin: -55px -55px 0 0;
-}
-*html #fade {
-position: absolute;
-}
-*html .popup_block {
-position: absolute;
-}

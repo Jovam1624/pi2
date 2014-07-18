@@ -90,6 +90,7 @@ class Controleur
 			$plusCommente = $bdd-> get_article_plusCommente(); 
 			$sondageMois = $bdd-> getSondageMois();
 			$aVue = new VueAccueil();
+			//$cookSondage = $bdd-> setCookieSondageMois();
 			$aVue->afficheAccueil($monarticle,$monArtPopulaire,$nbrIdees,$nbrClick,$plusLu, $plusPartage, $plusCommente,$sondageMois);
 			//var_dump($tabMeta); 
 		}

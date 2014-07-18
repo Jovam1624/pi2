@@ -16,6 +16,7 @@ class Accueil
     private $monArtPopulaire;
     private $nbrIdees;
     private  $nbrClick;
+    //private const cookSondage=1;
     private $tabMeta = array('title' => 'page accueil-journal d\'idées Eureka inventions 2014' , 'keywords' => 'accueil,inventions,idées,2014', 
                             'description' => 'pages accueil-plate-forme pour partager, financer, publier et commenter de nouvelles inventions brefetées ou non - inventions en 2014');
     
@@ -51,6 +52,11 @@ class Accueil
     }
      public function getMeta(){
         return $this->tabMeta;
+    }
+    
+    public function setCookieSondageMois($cookSondage){
+        //self::$cookSondage +=1;
+         
     }
     // **********************************
     public function getMonarticle()

@@ -25,7 +25,7 @@ class VueAccueil {
 	 */
 	public function afficheAccueil($monarticle,$monArtPopulaire,$nbrIdees,$nbrClick,$plusLu, $plusPartage, $plusCommente,$sondageMois) {
 	//$this->_vueHeader->AfficheEntete();
-	
+	//var_dump($_SESSION['histVote']);
 		?>
 		 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                
