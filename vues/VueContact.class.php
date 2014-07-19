@@ -73,11 +73,14 @@ class VueContact {
                                 <input type="text" class="form-control" id="exampleInputHuman" name="human" placeholder="Saisir ici" required>
                             </div>
                         </div>
-                                                                                   
-                            </form> <!-- ici finit le form -->
-                            <button type="submit" name="soumettre" class="btn btn-default form-control bouton">Soumettre</button>
-
+                        <div class="form-group">
+                            <div class="col-sm-2 col-sm-offset-4">
+                                <button type="submit" name="soumettre" class="btn btn-default form-control bouton">Soumettre</button>                                       </div>               
                         </div>
+                        
+                           
+
+                       
                    
                     <?php
                          if (isset($_POST['soumettre'])){           
@@ -102,9 +105,11 @@ class VueContact {
                                     <div class="contactConfirm">
                                         <h4>S.V.P V&eacute;rifier l'information !</h4>
                                     </div></div>
+                        </form> <!-- ici finit le form -->
+                             </div>
                                     <?php
                                 }
                         }
              }
     }                         
-?>  
+?>   

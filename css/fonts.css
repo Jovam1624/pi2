@@ -89,25 +89,38 @@
 .icon-plus22:before {
 	content: "\e64b";
 }
-.icon-twitter:before {
+.icon-twitter:before { /* style pour l'icone du twitter*/
 	content: "\e662";
 	font-size:2em;
 	color:#ccc;
 	margin-left:0.1em;
 	cursor:pointer;
-	
+    opacity: 1;
 }
-.icon-facebook:before {
+.icon-twitter:hover { /* style pour l'icone du twitter quand il est hover*/
+    opacity: 0.7;
+    text-decoration: none;
+}
+.icon-facebook:before { /* style pour l'icone du facebook*/
 	content: "\e663";
 	font-size:2em;
 	color:#ccc;
 	margin-right:0.6em;
 	cursor:pointer;
+    opacity: 1;
 }
-.icon-linkedin:before {
+.icon-facebook:hover { /* style pour l'icone du facebook quand il est hover*/
+    opacity: 0.7;
+    text-decoration: none;
+}
+.icon-linkedin:before { /* style pour l'icone du linkedin*/
 	content: "\e664";
 	font-size:2em;
 	color:#ccc;
 	cursor:pointer;
-	
+    opacity: 1;
+}
+.icon-linkedin:hover { /* style pour l'icone du linkedin quand il est hover*/
+    opacity: 0.7;
+    text-decoration: none;
 }

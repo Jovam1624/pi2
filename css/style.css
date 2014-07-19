@@ -135,7 +135,12 @@ figure > span{
 .navbar-header{
 	background-color:#075E41;
 }
-
+.eureka-pub{ /*pour créer l'espace entre la pub et le contenu */
+    margin: auto 0px;
+    margin-bottom: 10px;
+    margin-top: -20px;
+    width: 100%;
+}
 .menu-mobile /* le menu version mobile */
 { 
 	background-color:#0054FF;
@@ -170,19 +175,28 @@ figure > span{
 	color:#ffffff;
 	
 }
-.carousel-inner
-{
-    margin-bottom: 20px;
-    
-}
-
 .enssemble-articles , .col-xs-12 /* enleve le padding par defaut*/
 { 
 	padding:0;
 }
+.articles a /* style pour a */
+{
+    color:#077b54;
+}
+.articles a:hover{ /* style pour a quand il est hover*/
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 13px;
+    color:#456a5c;
+}
+.articles img{ /* style pour img*/
+    opacity:1;
+}
+.articles img:hover{ /* style pour img quand il est hover*/
+    opacity:0.7;
+}
 .contenu /* laisser une marge entre le menu et le contenu*/
 { 
-	
 	padding-top:25px;
 
 }
@@ -196,7 +210,7 @@ figure > span{
 
 .thumbnail /*mettre une couleur aux thumbnails*/
 { 
-	background-color:#EAE7D8;
+	background-color:#d9d9d9;
 	
 }
 
@@ -241,18 +255,18 @@ figure > span{
 }
 .thumbnail > .caption > h4 /* titres des thumbnail*/
 { 
-	color:#027EE4;
+	color:#077b54;
 }
 	/* icone rubrique articles populaires (voir aside)*/
 .media .media-body >  a > .glyphicon-comment
 {
-	color:#E7711B;
+	color:#077b54;
 }
 	/* couleur pour l'icone comment de chaque article (idée)*/
 .caption  > .comment
 {
-	color:#E7711B;
-} 
+	color:#077b54;
+}  
 	/* couleur pour input qui est dans comment*/
 .caption  > .comment > input[type=text]
 {
@@ -307,10 +321,32 @@ aside > ul > .active
 	padding: 10px 20px; 
 	font-weight:600;
 }
+a.titre.col-xs-9 /* style pour a dans le fil d'actualite*/
+{
+    font-weight: bold;
+    color:#077b54;
+}
+a.titre.col-xs-9:hover /* style pour a dans le fil d'actualite quand il est hover*/
+{
+    text-decoration: none;
+    color:#79817e;
+}
+.titre-fil:hover
+{
+    text-decoration: none;
+    font-weight: bold;
+}
 aside .images /* style pour l'aside fil d'actualité pour les images*/
 { 
     padding-left: 0px;
     padding-right: 0px;
+    opacity: 1;
+}
+aside .images:hover /* style pour l'aside fil d'actualité pour les images*/
+{ 
+    padding-left: 0px;
+    padding-right: 0px;
+    opacity: 0.7;
 }
 aside .titre /* style pour l'aside fil d'actualité pour les titres sur chaque article*/
 { 
@@ -322,9 +358,14 @@ aside .datePublie /* style pour l'aside fil d'actualité pour la date de publica
     margin-top: -20px;
     padding-left: 10px;
     padding-right: 0px;
+    font-size: 13px;
 }
 aside .fb-like-box{  /* style pour l'aside like-box du facebook pour que soit separé */
     padding-top: 10px;
+}
+aside .reseaux-sociaux{  /* style pour l'aside like-box du facebook pour que soit separé */
+    padding-right: 0px;
+    padding-left: 0px;
 }
 footer{ /* le footer */
 	

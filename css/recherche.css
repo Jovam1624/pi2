@@ -1,19 +1,19 @@
 /* css recherche */
 
-.recherche h1{
+.recherche h1{  /* style pour h1*/
     margin-top: 5px;
     margin-bottom: 5px;
     text-align: center;
     color: #000000;
 }
-.recherche h2{
+.recherche h2{  /* style pour h2*/
     margin-top: 10px;
     margin-bottom: 15px;
     font-size: 15px;
     margin-left: 15px;
     color: #000000;
 }
-.recherche h3{
+.recherche h3{ /* style pour h3*/
     margin-top: 10px;
     margin-bottom: 5px;
     font-weight: bold;
@@ -21,4 +21,20 @@
     font-style: italic;
     color: #019875;
     margin-left: 15px;
+}
+.recherche a /* style pour a */
+{
+    font-size: 15px;
+    color:#077b54;
+}
+.recherche a:hover{ /* style pour a quand il est hover*/
+    text-decoration: none;
+    font-weight: bold;
+    color:#456a5c;
+}
+.recherche img{ /* style pour img*/
+    opacity:1;
+}
+.recherche img:hover{ /* style pour img quand il est hover*/
+    opacity:0.7;
 }
