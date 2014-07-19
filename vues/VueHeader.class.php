@@ -56,9 +56,9 @@ class VueHeader {
        			</figure>	
      				<div class="inscription">
                		<div class="reseaux-sociaux">
-                		 <span class="icon-linkedin"></span>
-                 		 <span class="icon-twitter"></span>
-                 		 <span class="icon-facebook"></span>
+                		<a href="http://www.linkedin.com/pub/eureka-journal-d-id%C3%A9es/9b/741/8a7" target="_blank"><span class="icon-linkedin"></span></a>
+                        <a href="https://twitter.com/Eureka_Journal" target="_blank"><span class="icon-twitter"></span></a>
+                        <a href="https://www.facebook.com/pages/Journal-Eureka/1435830350024137?fref=ts" target="_blank"><span class="icon-facebook"></span></a>        
                   </div>
    				     <?php if(isset($_SESSION['utilisateur'])) {
    							?>
